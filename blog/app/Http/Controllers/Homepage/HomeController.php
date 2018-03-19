@@ -82,4 +82,14 @@ class HomeController extends Controller
     {
         //
     }
+
+    public function showQuestionRS ()
+    {
+        return view('homepage.show-question-rs');
+    }
+
+    public function recommender ()
+    {
+        return view('homepage.recommender');
+    }
 }

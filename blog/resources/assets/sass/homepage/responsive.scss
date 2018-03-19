@@ -1,0 +1,962 @@
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .course-content {
+    .content-title {
+      margin-top: 160px;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+  .login-homepage {
+    .content {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .login-homepage {
+    .content {
+      margin-top: 100px;
+    }
+  }
+  .connect-facebook {
+    .text-or {
+      position: relative;
+      margin-top: 100px;
+      &:after {
+        width: 170px;
+      }
+      &:before {
+        width: 170px;
+      }
+    }
+  }
+  .index-header {
+    .navbar {
+      .navbar-nav {
+        > li {
+          font-size: 13px;
+        }
+        &.navbar-left {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .event-header {
+    .navbar {
+      .navbar-nav {
+        margin: 18px 0 18px 0;
+        > li {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .event-slider {
+    .owl-carousel {
+      .owl-slide {
+        .owl-text h2 {
+          font-size: 44px;
+        }
+      }
+    }
+  }
+  .event {
+    .event-content {
+      .events {
+        .border-event {
+          .event-blog {
+            .event-beginer-right {
+              .event-beginer-right-padding {
+                .event-beginer-right-text {
+                  p {
+                    margin-top: 0;
+                    max-height: 66px;
+                  }
+                }
+                a {
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .paginate {
+        ul {
+          li {
+            padding-left: 10px !important;
+          }
+        }
+      }
+    }
+  }
+  .course {
+    .paginate {
+      ul {
+        li {
+          padding-left: 10px !important;
+        }
+      }
+    }
+  }
+  .feedback {
+    .bgr-feedback {
+      padding: 13% 0;
+      .feedback-detail {
+        .feedback-content {
+          padding: 22px 50px 0px 30px;
+          p {
+            max-height: 170px;
+            overflow: hidden;
+          }
+          .student-name {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .teachers {
+    .header {
+      h2 {
+        font-size: 29px;
+      }
+    }
+    form {
+      h2 {
+        margin-top: 50px;
+      }
+    }
+  }
+  .why-hapojc {
+    .bgr-why-hpojc {
+      h2 {
+        margin-top: 240px;
+        font-size: 24px;
+      }
+    }
+  }
+  .best-courses {
+    .list-course {
+      p:first-of-type {
+        min-height: 106px;
+      }
+    }
+  }
+  .footer {
+    .footer-content {
+      .facebook-page {
+        iframe {
+          width: 440px;
+          height: 236px;
+        }
+      }
+    }
+  }
+  .content-error {
+    .heading-error {
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .body-error {
+      img {
+        width: 80%;
+      }
+    }
+    .footer-error {
+      font-size: 14px;
+    }
+  }
+  .heading-register-learn-test {
+    h2 {
+      font-size: 26px;
+      margin-bottom: -5%;
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .register-learn-page {
+    margin-top: 25px;
+    h2 {
+      font-size: 26px;
+    }
+  }
+  .schedule {
+    margin-top: 80px;
+  }
+  .login-homepage {
+    .content {
+      margin-top: 100px;
+    }
+  }
+  .connect-facebook {
+    .text-or {
+      &:after {
+        width: 180px;
+      }
+      &:before {
+        width: 180px;
+      }
+    }
+  }
+  .index-header {
+    .navbar {
+      .navbar-nav {
+        margin: 0;
+        > li {
+          font-size: 12px;
+        }
+        &.navbar-right {
+          li {
+            a {
+              padding: 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .event-header {
+    .navbar {
+      .navbar-nav {
+        margin: 18px 0 0 10px;
+        > li {
+          font-size: 12px;
+          a {
+            padding: 10px 14px;
+          }
+        }
+        &.navbar-right {
+          padding: 0 0 10px 0;
+        }
+      }
+    }
+  }
+  .event-slider {
+    .owl-carousel {
+      .owl-slide {
+        .owl-text h2 {
+          font-size: 34px;
+          &:after {
+            width: 345px;
+          }
+        }
+      }
+    }
+  }
+  .event {
+    .event-content {
+      .events {
+        .border-event {
+          .event-blog {
+            .event-beginer-right {
+              .event-beginer-right-padding {
+                .event-beginer-right-text {
+                  p {
+                    margin-top: 0;
+                    max-height: 87px;
+                  }
+                }
+                a {
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .paginate {
+        ul {
+          li {
+            padding-left: 15px !important;
+          }
+        }
+      }
+    }
+  }
+  .feedback {
+    .bgr-feedback {
+      padding: 15% 0;
+      .feedback-detail {
+        .feedback-content {
+          padding: 22px 50px 0px 30px;
+          p {
+            max-height: 108px;
+            overflow: hidden;
+          }
+          .student-name {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .teachers {
+    .form-advise {
+      button {
+        margin: 20px 0 25px 0;
+      }
+    }
+    .padding-left-0 {
+      padding: 0 !important;
+    }
+  }
+  .main-slider {
+    #topSlider {
+      .owl-slide {
+        .owl-text {
+          h2 {
+            font-size: 29px;
+            font-weight: 300;
+            line-height: 40px;
+            margin: 165px 0 0 0;
+          }
+        }
+      }
+    }
+  }
+  .why-hapojc {
+    .bgr-why-hpojc {
+      h2 {
+        font-size: 18px;
+      }
+    }
+  }
+  .best-courses {
+    .list-course {
+      p:first-of-type {
+        min-height: 150px;
+      }
+      .img-responsive {
+        height: 180px;
+      }
+    }
+  }
+  .course-content {
+    .courses {
+      .course-beginer {
+        .course-beginer-right {
+          h4 {
+            margin: 20px 0 0 0;
+          }
+          .course-beginer-right-text {
+            p {
+              max-height: 115px;
+              margin-top: 2%;
+            }
+          }
+        }
+        h5 {
+          margin-bottom: 20px;
+        }
+      }
+      .paginate {
+        ul {
+          li {
+            padding-left: 15px !important;
+          }
+        }
+      }
+    }
+  }
+  .loading {
+    img {
+      left: calc(50% - 100px);
+      top: calc(50% - 10px);
+    }
+  }
+  .content-error {
+    .heading-error {
+      h2 {
+        font-size: 24px;
+      }
+    }
+    .body-error {
+      img {
+        width: 80%;
+      }
+    }
+    .footer-error {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .courses {
+    .course-beginer {
+      .flex {
+        display: block;
+      }
+      .btn-course {
+        text-align: center;
+      }
+      .global-btn {
+        margin-top: 10px;
+        color: white;
+      }
+      .course-beginer-right {
+        margin-bottom: 20px !important;
+        text-align: center;
+      }
+    }
+    .paginate {
+      ul {
+        li {
+          padding-left: 1px !important;
+        }
+      }
+    }
+  }
+  .best-courses {
+    .position-course {
+      display: block;
+    }
+  }
+  .schedule {
+    margin-top: 80px;
+  }
+  .schedule .content-title:after {
+    width: 100%;
+  }
+  .event-slider {
+    .owl-carousel {
+      .owl-slide {
+        .owl-text {
+          h2 {
+            font-size: 19px;
+            line-height: 28px;
+            &:after {
+              width: 345px;
+            }
+          }
+          p {
+            font-size: 14px;
+            line-height: 25px;
+            padding-right: 15px;
+          }
+        }
+      }
+    }
+  }
+  .event {
+    .event-content {
+      .event-content-title {
+        h2 {
+          font-size: 25px;
+          text-align: center;
+        }
+      }
+      .events {
+        .border-event {
+          .event-blog {
+            .flex {
+              display: block;
+              padding: 0 15px;
+            }
+            .event-beginer-right {
+              padding: 0 15px;
+              h4 {
+                padding-right: 0;
+              }
+              .event-beginer-right-text {
+                margin-right: 0;
+              }
+              .text-right {
+                text-align: center;
+                margin-left: 20px;
+                margin-top: 20px;
+              }
+            }
+          }
+        }
+      }
+      .paginate {
+        ul {
+          li {
+            padding-left: 1px !important;
+          }
+        }
+      }
+    }
+  }
+  .teachers {
+    .relative {
+      h2 {
+        position: relative;
+        font-size: 22px;
+        line-height: 24px;
+        text-align: center;
+      }
+      h4 {
+        font-size: 14px;
+      }
+    }
+    .text-dark-green {
+    }
+    form {
+      h2 {
+        font-size: 22px;
+      }
+    }
+    .form-advise {
+      button {
+        margin: 20px 0 25px 0;
+      }
+    }
+  }
+  .main-slider {
+    #topSlider {
+      .owl-slide {
+        .owl-text {
+          h2 {
+            font-size: 29px;
+            font-weight: 300;
+            line-height: 40px;
+            margin: 165px 0 0 0;
+          }
+          p {
+            margin: 30px 15px 0 0;
+          }
+        }
+      }
+    }
+  }
+  .margin-top-200 {
+    margin-top: 361px;
+  }
+  .why-hapojc {
+    .bgr-why-hpojc {
+      h2 {
+        font-size: 22px;
+      }
+      .content {
+        margin: 70px 0 0 0;
+      }
+      .outer {
+        p {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .footer {
+    .footer-content {
+      .facebook-page {
+        iframe {
+          width: 292px;
+          height: 236px;
+        }
+      }
+    }
+  }
+  .event-header {
+    .navbar {
+      .navbar-right {
+        .right-header-btn {
+          a {
+            max-width: 168px;
+            padding: 10px 19px;
+
+          }
+        }
+      }
+    }
+  }
+  .index-header {
+    .navbar {
+      #nav-bar {
+        ul {
+          li {
+            margin: 0;
+          }
+        }
+      }
+      .navbar-right {
+        li {
+          a {
+            max-width: 186px;
+            margin-left: 70px;
+          }
+        }
+      }
+    }
+  }
+  .modal-dialog {
+    min-width: auto !important;
+    padding: 10px 20px !important;
+    .close {
+      display: none !important;
+    }
+  }
+  .course-content {
+    .content-title {
+      margin-top: 113px;
+      &:after {
+        width: 92%;
+      }
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 568px) {
+  .login-homepage {
+    .content {
+      margin-top: 20px;
+    }
+  }
+  .heading-register-learn-test {
+    h2 {
+      font-size: 30px;
+      margin-bottom: -5%;
+      text-align: center;
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and(max-width: 767px) {
+  .why-hapojc {
+    h2 {
+      text-align: center;
+    }
+  }
+  .teachers {
+    .form-advise {
+      h2 {
+        text-align: center;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+    .owl-carousel {
+      .owl-text {
+        padding-right: 0;
+      }
+      .padding-left-0 {
+        padding-right: 0;
+      }
+      .owl-dots {
+        left: 30px !important;
+      }
+    }
+  }
+  .feedback {
+    .bgr-feedback {
+      h2 {
+        font-size: 22px;
+        text-align: center;
+        position: relative;
+      }
+      .owl-carousel {
+        padding: 50px 15px;
+        .owl-dots {
+          left: 15px;
+        }
+        p {
+          font-size: 12px;
+        }
+        img {
+          height: 100px !important;
+        }
+      }
+    }
+    .feedback-detail {
+      min-height: 420px;
+    }
+  }
+  .best-courses {
+    h2 {
+      font-size: 22px;
+      text-align: center;
+    }
+  }
+  .loading {
+    img {
+      width: 20%;
+      top: calc(50% - 20px);
+      left: calc(50% - 30px);
+    }
+  }
+  .footer {
+    .footer-content {
+      .contact {
+        font-size: 12px;
+      }
+    }
+    .copyright {
+      p {
+        font-size: 11px;
+      }
+    }
+  }
+  .content-error {
+    width: 500px;
+    height: 360px;
+    margin: -180px 0 0 -250px;
+    .heading-error {
+      h2 {
+        font-size: 16px;
+      }
+    }
+    .body-error {
+      img {
+        width: 60%;
+      }
+    }
+    .footer-error {
+      font-size: 10px;
+    }
+  }
+  .schedule {
+    .content-title {
+      h2 {
+        font-size: 25px;
+        text-align: center;
+      }
+      &:after {
+        display: none;
+      }
+      &:before {
+        display: none;
+      }
+    }
+    .month-navigation {
+      p {
+        text-align: center;
+      }
+    }
+    #calendar {
+      margin: 18% 0 0 0;
+      .fc-content {
+        font-size: 10px;
+      }
+    }
+  }
+  .login-homepage {
+    .form-login {
+      padding: 0 20px;
+    }
+    .content {
+      padding: 45px 0;
+    }
+    .connect-facebook {
+      .text-or {
+        &:before {
+          width: 120px;
+        }
+        &:after {
+          width: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .content-error {
+    width: 400px;
+    height: 300px;
+    margin: -150px 0 0 -200px;
+    .heading-error {
+      h2 {
+        font-size: 14px;
+      }
+    }
+    .body-error {
+      img {
+        width: 60%;
+      }
+    }
+    .footer-error {
+      font-size: 8px;
+    }
+  }
+}
+
+@media screen and (min-width: 1367px) and (max-width: 1920px) {
+  .content-error {
+    .heading-error {
+      h2 {
+        font-size: 36px;
+      }
+    }
+    .body-error {
+      img {
+        width: 80%;
+      }
+    }
+    .footer-error {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 1365px) and (min-width: 768px) {
+  .register-learn-page {
+    h2 {
+      font-size: 26px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .navbar {
+    .container {
+      padding: 0px;
+    }
+  }
+  .event-header .navbar .navbar-header {
+    margin: 0px;
+  }
+  .logo {
+    width: 108px;
+    margin-left: 15px;
+  }
+  .navbar-header {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-height: 66px;
+  }
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: 0px;
+    min-height: 100vh;
+  }
+  .footer .btn-scroll-top {
+    z-index: 999;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #78B00A;
+  }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+  }
+  .navbar-default .navbar-toggle {
+    border: 0px;
+  }
+  .index-header .navbar .navbar-left {
+    margin: 0px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .index-header .navbar .navbar-right li a {
+    margin-left: 0px;
+    margin: 0 auto;
+    max-width: 80%;
+    text-align: center;
+  }
+  .index-header .navbar #nav-bar ul li {
+    padding-top: 25px;
+    font-size: 18px;
+    a {
+      color: #153401;
+    }
+  }
+  .index-header .navbar.navbar-fixed-top {
+    background-color: #FFFFFF;
+    margin-top: 0px;
+  }
+  .collapsed {
+    transform: rotate(0deg) !important;
+    .bar-right {
+      transform: rotate(0deg) !important;
+      margin-top: 4px !important;
+    }
+    .bar-left {
+      transform: rotate(0deg) !important;
+    }
+  }
+  .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 0px;
+  }
+  .event-header .navbar .navbar-left {
+    margin: 0px;
+    text-align: center;
+    margin: 0 auto;
+    li {
+      a {
+        text-align: center;
+      }
+    }
+  }
+  .event-header .navbar .navbar-right li a {
+    margin-left: 0px;
+    margin: 0 auto;
+    max-width: 80% !important;
+    text-align: center;
+  }
+  .event-header .navbar #nav-bar ul li {
+    padding-top: 25px;
+    font-size: 18px;
+    a {
+      color: #153401;
+    }
+  }
+  .event-header .navbar.navbar-fixed-top {
+    background-color: #FFFFFF;
+    margin-top: 0px;
+  }
+  .event-header .navbar .navbar-nav {
+    margin: 0px;
+  }
+  .event-header .navbar .navbar-header {
+    padding-right: 0px;
+  }
+  .navbar-toggle {
+    transform: rotate(90deg);
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: -webkit-transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    .bar-left {
+      transform: rotate(-45deg);
+      -webkit-transition: -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      position: absolute;
+    }
+    .bar-right {
+      -webkit-transition: -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      transition: transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.25s 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1023px) {
+  .btn-prev {
+    display: none;
+  }
+  .btn-next {
+    display: none;
+  }
+}
+

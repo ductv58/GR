@@ -13,4 +13,6 @@
 
 Route::group(['namespace' => 'Homepage', 'as' => 'homepage.'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
+    Route::get('/show-question-rs', ['as' => 'show_question_rs', 'uses' => 'HomeController@showQuestionRS']);
+    Route::get('/recommender', ['as' => 'recommender', 'uses' => 'HomeController@recommender']);
 });
