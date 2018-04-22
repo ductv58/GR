@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/botman', 'BotManController@handle');
+Route::post('/botman', 'BotManController@handle');
+
 Route::group(['namespace' => 'Homepage', 'as' => 'homepage.'], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
     Route::get('/show-question-rs', ['as' => 'show_question_rs', 'uses' => 'HomeController@showQuestionRS']);

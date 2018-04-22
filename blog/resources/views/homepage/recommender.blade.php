@@ -128,6 +128,19 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
+        <a class="btn-messenger">
+            <img src="/images/mess.png" alt="facebook messenger">
+        </a>
+        <div class="facebook-messenger fb-page">
+            <div class="container messages">
+                <div class="content fb-mess" id="app">
+                    <botman-tinker></botman-tinker>
+                </div>
+            </div>
+        </div>
+        <a class="close">
+            <img src="/images/close.png" alt="facebook messenger close">
+        </a>
         <div class="container">
             <div class="footer-content">
                 <img class="margin-top-70 img-responsive" src="/images/images.jpg" alt="">
@@ -252,6 +265,20 @@
     }
     lastScrollTop = st;
   }
+  $(document).ready(function () {
+    $('.btn-messenger').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "block");
+      $('.close').css("display", "block");
+    });
+  });
+  $(document).ready(function () {
+    $('.close').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "none");
+      $('.btn-messenger').css("display", "block");
+    });
+  });
 </script>
 </body>
 

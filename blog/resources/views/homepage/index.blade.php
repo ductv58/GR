@@ -11,6 +11,27 @@
 </head>
 
 <body>
+<script>
+  window.fbAsyncInit = function () {
+    ee
+    FB.init({
+      appId: '1541324475987083',
+      xfbml: true,
+      version: 'v2.6'
+    });
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <header class="event-header">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -67,34 +88,15 @@
                     </button>
                     <div class="owl-carousel">
                         <div class="owl-slide">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="owl-text">
-                                                <h2>SOICT Bách Khoa Hà Nội</h2>
-                                                <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào tạo kỹ sư ở Việt Nam,
-                                                    trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi của trường.
-                                                </p>
-                                                <p>
-                                                    Trụ sở: <span
-                                                            class="owl-text-change">B1 đại học Bách Khoa Hà Nội</span>
-                                                </p>
-                                                <a href="#" class="global-btn">XEM THÊM
-                                                    <span class="ti-arrow-right"></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="owl-slide">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-10">
                                         <div class="owl-text">
                                             <h2>SOICT Bách Khoa Hà Nội</h2>
-                                            <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào tạo kỹ sư ở Việt Nam,
-                                                trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi của trường.
+                                            <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào
+                                                tạo kỹ sư ở Việt Nam,
+                                                trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi
+                                                của trường.
                                             </p>
                                             <p>
                                                 Trụ sở: <span
@@ -114,8 +116,33 @@
                                     <div class="col-sm-10">
                                         <div class="owl-text">
                                             <h2>SOICT Bách Khoa Hà Nội</h2>
-                                            <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào tạo kỹ sư ở Việt Nam,
-                                                trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi của trường.
+                                            <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào
+                                                tạo kỹ sư ở Việt Nam,
+                                                trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi
+                                                của trường.
+                                            </p>
+                                            <p>
+                                                Trụ sở: <span
+                                                        class="owl-text-change">B1 đại học Bách Khoa Hà Nội</span>
+                                            </p>
+                                            <a href="#" class="global-btn">XEM THÊM
+                                                <span class="ti-arrow-right"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-slide">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <div class="owl-text">
+                                            <h2>SOICT Bách Khoa Hà Nội</h2>
+                                            <p>Trường đại học Bách Khoa Hà Nội là một trong những trường hàng đầu về đào
+                                                tạo kỹ sư ở Việt Nam,
+                                                trong đó công nghệ thông tin luôn được xem như là ngành nói lên tên tuổi
+                                                của trường.
                                             </p>
                                             <p>
                                                 Trụ sở: <span
@@ -144,14 +171,19 @@
             <div class="event-content-question col-md-12">
                 <ul>
                     <li><span class="span-icon-bk ti-crown"></span>Bạn muốn trở thành một sinh viên Bách Khoa?</li>
-                    <li><span class="span-icon-it ti-mouse-alt"></span>Bạn muốn trở thành một kỹ sư công nghệ thông tin trong tương lai?</li>
-                    <li><span class="span-icon-question ti-help"></span>Bạn thắc mắc không biết nên chọn ngành nào trong số các ngành Bách Khoa đào tạo?</li>
+                    <li><span class="span-icon-it ti-mouse-alt"></span>Bạn muốn trở thành một kỹ sư công nghệ thông tin
+                        trong tương lai?
+                    </li>
+                    <li><span class="span-icon-question ti-help"></span>Bạn thắc mắc không biết nên chọn ngành nào trong
+                        số các ngành Bách Khoa đào tạo?
+                    </li>
                 </ul>
             </div>
             <div class="event-content-answer col-md-10">
                 <img src="/images/pin.png" alt="pin">
                 <span class="answer-border-top"></span>
-                <p>Từng đứng trên lập trường các bạn, chúng tôi hiểu các bạn đang cần giải quyết những vấn đề xoay quanh đó. Do đó chúng tôi tạo ra trang
+                <p>Từng đứng trên lập trường các bạn, chúng tôi hiểu các bạn đang cần giải quyết những vấn đề xoay quanh
+                    đó. Do đó chúng tôi tạo ra trang
                     web này hy vọng sẽ giúp các bạn phần nào giải quyết được những vấn đề đang trăn trở.
                 </p>
                 <span class="answer-border-bot"></span>
@@ -173,12 +205,16 @@
                                 <div class="branch-top-border">
                                     <img src="/images/cnpm.jpg" alt="">
                                     <h2>CÔNG NGHỆ PHẦN MỀM</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo trì phần mềm.
+                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
+                                        việc phát triển, sử dụng và bảo trì phần mềm.
+                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
+                                        cho việc định nghĩa yêu cầu phần mềm,
+                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
+                                        trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a></div>
+                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
+                                </div>
                             </div>
                         </div>
                         <div class="branch-top col-md-4">
@@ -186,12 +222,16 @@
                                 <div class="branch-top-border">
                                     <img src="/images/httt.jpg" alt="">
                                     <h2>HỆ THỐNG THÔNG TIN</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo trì phần mềm.
+                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
+                                        việc phát triển, sử dụng và bảo trì phần mềm.
+                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
+                                        cho việc định nghĩa yêu cầu phần mềm,
+                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
+                                        trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a></div>
+                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
+                                </div>
                             </div>
                         </div>
                         <div class="branch-top col-md-4">
@@ -199,12 +239,16 @@
                                 <div class="branch-top-border">
                                     <img src="/images/slibar.jpg" alt="">
                                     <h2>KHOA HỌC MÁY TÍNH</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo trì phần mềm.
+                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
+                                        việc phát triển, sử dụng và bảo trì phần mềm.
+                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
+                                        cho việc định nghĩa yêu cầu phần mềm,
+                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
+                                        trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a></div>
+                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -223,6 +267,19 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
+        <a class="btn-messenger">
+            <img src="/images/mess.png" alt="facebook messenger">
+        </a>
+        <div class="facebook-messenger fb-page">
+            <div class="container messages">
+                <div class="content fb-mess" id="app">
+                    <botman-tinker></botman-tinker>
+                </div>
+            </div>
+        </div>
+        <a class="close">
+            <img src="/images/close.png" alt="facebook messenger close">
+        </a>
         <div class="container">
             <div class="footer-content">
                 <img class="margin-top-70 img-responsive" src="/images/images.jpg" alt="">
@@ -347,6 +404,29 @@
     }
     lastScrollTop = st;
   }
+
+  $(document).ready(function () {
+    $('.btn-messenger').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "block");
+      $('.close').css("display", "block");
+    });
+  });
+  $(document).ready(function () {
+    $('.close').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "none");
+      $('.btn-messenger').css("display", "block");
+    });
+  });
+  $('.ChatInput').keypress(function (e) {
+    let messages = $('.ChatLog');
+    if (e.which == 13) {
+      messages.animate({
+        scrollTop: messages.get(0).scrollHeight
+      }, 2000)
+    }
+  })
 </script>
 </body>
 

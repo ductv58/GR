@@ -163,11 +163,15 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        NotificationChannels\WebPush\WebPushServiceProvider::class,
         /*
          * Package Service Providers...
          */
-
+        //BotMan Provider
+        BotMan\Tinker\TinkerServiceProvider::class,
+        App\Providers\BotMan\DriverServiceProvider::class,
+        BotMan\BotMan\BotManServiceProvider::class,
+        BotMan\Studio\Providers\StudioServiceProvider::class,
         /*
          * Application Service Providers...
          */

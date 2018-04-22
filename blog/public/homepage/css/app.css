@@ -12659,7 +12659,7 @@ body {
 }
 
 .branch .branch-content .branch-top .branch-top-hover .branch-btn a {
-  padding: 15px 138px;
+  padding: 15px 137px;
   background: -webkit-gradient(linear, right top, left top, from(#f92121), to(#a91508));
   background: linear-gradient(270deg, #f92121 0%, #a91508 100%);
   color: white;
@@ -12886,6 +12886,65 @@ body {
   color: #ffffff;
 }
 
+.footer .btn-messenger {
+  text-align: center;
+  background: white;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  right: 27px;
+  bottom: 15%;
+}
+
+.footer .btn-messenger img {
+  width: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.footer .facebook-messenger {
+  position: fixed;
+  right: 95px;
+  bottom: 15%;
+  display: none;
+  z-index: 999;
+  height: 380px;
+  width: 270px;
+}
+
+.footer .close {
+  display: none;
+  text-align: center;
+  background: white;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  right: 27px;
+  bottom: 15%;
+}
+
+.footer .close img {
+  width: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 .footer .top-footer {
   background: -webkit-gradient(linear, right top, left top, from(#f92121), to(#a91508));
   background: linear-gradient(270deg, #f92121 0%, #a91508 100%);
@@ -12956,6 +13015,48 @@ body {
 
 .footer .copyright p a {
   color: #ffffff;
+}
+
+.content.fb-mess {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
+
+.content.fb-mess label {
+  display: none;
+}
+
+.content.fb-mess input.ChatInput {
+  width: 100%;
+}
+
+.container.messages {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(#57bfc7, #45a6b3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content.fb-mess {
+  text-align: center;
+}
+
+.ChatLog {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 0;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
