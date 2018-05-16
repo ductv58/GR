@@ -527,6 +527,19 @@ body {
       color: $color-03;
     }
   }
+  .check-auth {
+    background: gray;
+    position: fixed;
+    z-index: 5;
+    width: 30%;
+    height: 10%;
+    right: 95px;
+    bottom: 15%;
+    line-height: 60px;
+    img {
+      width: 100%;
+    }
+  }
   .btn-messenger {
     text-align: center;
     background: white;

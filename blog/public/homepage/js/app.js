@@ -27969,6 +27969,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 /***/ }),
 
+/***/ "./resources/assets/sass/admin/app.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/assets/sass/homepage/app.scss":
 /***/ (function(module, exports) {
 
@@ -27980,7 +27987,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/homepage/app.js");
-module.exports = __webpack_require__("./resources/assets/sass/homepage/app.scss");
+__webpack_require__("./resources/assets/sass/homepage/app.scss");
+module.exports = __webpack_require__("./resources/assets/sass/admin/app.scss");
 
 
 /***/ })

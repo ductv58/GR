@@ -7,4 +7,4 @@ $botman->hears('Hi', function ($bot) {
     $bot->typesAndWaits(1);
     $bot->reply('Hello!');
 });
-$botman->hears('Start conversation', BotManController::class.'@firstQuestion');
+$botman->hears('start', BotManController::class.'@firstQuestion');

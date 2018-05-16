@@ -43,14 +43,14 @@
                     <span class="icon-bar bar-left "></span>
                     <span class="icon-bar bar-right"></span>
                 </button>
-                <a href="{{ route('homepage.index') }}">
+                <a href="{{ route('homepage.home') }}">
                     <img src="/images/images.png" alt="">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="{{route('homepage.index')}}">Trang Chủ</a>
+                        <a href="{{route('homepage.home')}}">Trang Chủ</a>
                     </li>
                     <li>
                         <a href="#branch">Ngành Học</a>
@@ -60,16 +60,30 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    @if (Auth::guard('user')->check() == null)
                     <li class="signup-btn">
                         <a href="#">ĐĂNG KÝ
                             <span class="ti-arrow-right"></span>
                         </a>
                     </li>
                     <li class="signin-btn">
-                        <a href="#">ĐĂNG NHẬP
+                        <a href="{{ route('homepage.login') }}">ĐĂNG NHẬP
                             <span class="ti-arrow-right"></span>
                         </a>
                     </li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                {{ Auth::guard('user')->user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('homepage.logout') }}">LogOut</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -267,6 +281,9 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
+        {{--<div class="check-auth">--}}
+            {{--<img src="/images/checkAuth.jpg" alt="">--}}
+        {{--</div>--}}
         <a class="btn-messenger">
             <img src="/images/mess.png" alt="facebook messenger">
         </a>
@@ -371,7 +388,7 @@
       return;
     if (st > lastScrollTop && st > navbarHeight) {
       // Scroll Down
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           $('nav').removeClass('nav-down').addClass('nav-up');
         }
@@ -382,7 +399,7 @@
         @endif
     } else {
       // Scroll Up
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           if (st + $(window).height() < $(document).height()) {
             $('nav').removeClass('nav-up').addClass('nav-down');

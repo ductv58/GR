@@ -12886,6 +12886,21 @@ body {
   color: #ffffff;
 }
 
+.footer .check-auth {
+  background: gray;
+  position: fixed;
+  z-index: 5;
+  width: 30%;
+  height: 10%;
+  right: 95px;
+  bottom: 15%;
+  line-height: 60px;
+}
+
+.footer .check-auth img {
+  width: 100%;
+}
+
 .footer .btn-messenger {
   text-align: center;
   background: white;
