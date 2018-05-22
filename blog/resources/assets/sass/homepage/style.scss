@@ -262,6 +262,7 @@ body {
     }
   }
 }
+
 .branch {
   .branch-title {
     h2 {
@@ -313,22 +314,22 @@ body {
           h2 {
             color: #bf0d0d;
           }
-          p {
+          p{
             padding: 0 16px;
             color: #e25252;
             min-height: 200px;
           }
+
         }
         .branch-btn {
-          a {
-            padding: 15px 137px;
-            background: linear-gradient(270deg, #f92121 0%, #a91508 100%);
-            color: white;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-            &:hover {
-              background: linear-gradient(270deg, #a91508 0%, #f92121 100%);
-            }
+          text-align: center;
+          line-height: 40px;
+          background: linear-gradient(270deg, #f92121 0%, #a91508 100%);
+          color: white;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          &:hover {
+            background: linear-gradient(270deg, #a91508 0%, #f92121 100%);
           }
         }
         &:hover {
@@ -652,6 +653,7 @@ body {
     }
   }
 }
+
 .content.fb-mess {
   position: absolute;
   bottom: 5px;

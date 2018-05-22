@@ -12658,8 +12658,9 @@ body {
   min-height: 200px;
 }
 
-.branch .branch-content .branch-top .branch-top-hover .branch-btn a {
-  padding: 15px 137px;
+.branch .branch-content .branch-top .branch-top-hover .branch-btn {
+  text-align: center;
+  line-height: 40px;
   background: -webkit-gradient(linear, right top, left top, from(#f92121), to(#a91508));
   background: linear-gradient(270deg, #f92121 0%, #a91508 100%);
   color: white;
@@ -12667,7 +12668,7 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.branch .branch-content .branch-top .branch-top-hover .branch-btn a:hover {
+.branch .branch-content .branch-top .branch-top-hover .branch-btn:hover {
   background: -webkit-gradient(linear, right top, left top, from(#a91508), to(#f92121));
   background: linear-gradient(270deg, #a91508 0%, #f92121 100%);
 }

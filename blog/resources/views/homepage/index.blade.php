@@ -61,19 +61,20 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guard('user')->check() == null)
-                    <li class="signup-btn">
-                        <a href="#">ĐĂNG KÝ
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
-                    <li class="signin-btn">
-                        <a href="{{ route('homepage.login') }}">ĐĂNG NHẬP
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
+                        <li class="signup-btn">
+                            <a href="#">ĐĂNG KÝ
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
+                        <li class="signin-btn">
+                            <a href="{{ route('homepage.login') }}">ĐĂNG NHẬP
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::guard('user')->user()->name }} <span class="caret"></span>
                             </a>
 
@@ -227,8 +228,7 @@
                                         trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
-                                </div>
+                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
                             </div>
                         </div>
                         <div class="branch-top col-md-4">
@@ -244,8 +244,7 @@
                                         trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
-                                </div>
+                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
                             </div>
                         </div>
                         <div class="branch-top col-md-4">
@@ -253,16 +252,18 @@
                                 <div class="branch-top-border">
                                     <img src="/images/slibar.jpg" alt="">
                                     <h2>KHOA HỌC MÁY TÍNH</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
+                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được
+                                        cho
                                         việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
+                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương
+                                        pháp
                                         cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
+                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và
+                                        bảo
                                         trì phần mềm.
                                     </p>
                                 </div>
-                                <div class="branch-btn"><a href="#">Xem thêm<span class="ti-arrow-right"></span></a>
-                                </div>
+                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
                             </div>
                         </div>
                     </div>
@@ -282,7 +283,7 @@
             <span class="ti-angle-double-up"></span>
         </button>
         {{--<div class="check-auth">--}}
-            {{--<img src="/images/checkAuth.jpg" alt="">--}}
+        {{--<img src="/images/checkAuth.jpg" alt="">--}}
         {{--</div>--}}
         <a class="btn-messenger">
             <img src="/images/mess.png" alt="facebook messenger">
