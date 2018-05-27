@@ -6,11 +6,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="{{ mix('/homepage/css/app.css') }}">
 </head>
 
 <body>
+<script>
+  window.fbAsyncInit = function () {
+    ee
+    FB.init({
+      appId: '1541324475987083',
+      xfbml: true,
+      version: 'v2.6'
+    });
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <header class="event-header">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -22,131 +43,76 @@
                     <span class="icon-bar bar-left "></span>
                     <span class="icon-bar bar-right"></span>
                 </button>
-                <a href="{{ route('homepage.index') }}">
+                <a href="{{ route('homepage.home') }}">
                     <img src="/images/images.png" alt="">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="{{route('homepage.index')}}">Trang Chủ</a>
+                        <a href="{{route('homepage.home')}}">Trang Chủ</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">Ngành Học</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('homepage.show_question_rs') }}">Tư Vấn</a>
+                        <a href="{{ route('homepage.list-branch') }}">Ngành Học</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="signup-btn">
-                        <a href="#">ĐĂNG KÝ
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
-                    <li class="signin-btn">
-                        <a href="#">ĐĂNG NHẬP
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
+                    @if (Auth::guard('user')->check() == null)
+                        <li class="signup-btn">
+                            <a href="{{ route('homepage.register') }}">ĐĂNG KÝ
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
+                        <li class="signin-btn">
+                            <a href="{{ route('homepage.login') }}">ĐĂNG NHẬP
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false" aria-haspopup="true">
+                                {{ Auth::guard('user')->user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('homepage.logout') }}">LogOut</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<div class="show-question-rs container-fluid">
+<div class="recommender container-fluid">
     <div class="container">
         <div class="row">
-            <div class="rs-content col-md-12">
+            <div class="recommender-content col-md-12">
                 <div class="row">
-                    <div class="rs-content-title col-md-12">
-                        <div class="tutorial">
-                            <img src="/images/pin.png" alt="pin">
-                            <span class="answer-border-top"></span>
-                            <p>Sau đây là các câu hỏi bạn sẽ cần trả lời để chúng tôi có thể đưa ra tư vấn cho bạn.</br>
-                            Kết quả tư vấn phụ thuộc vào việc bạn hiểu con người bạn bao nhiêu phần, nên hãy đánh giá thật cẩn
-                            thận bản thân nhé.</br>
-                            Mỗi câu hỏi sẽ có 5 mức đánh giá, bạn trả lời bằng cách lựa chọn mức đánh giá mà bạn cho là phù hợp nhất.
-                            </p>
-                            <span class="answer-border-bot"></span>
-                        </div>
-                        <h2>SẴN SÀNG TƯ VẤN</h2>
+                    <div class="recommender-content-title col-md-12">
+                        <h2>{{ $title }}</h2>
                     </div>
-                    <div class="rs-question col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 rs-question-left">
-                                <img src="/images/math.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 rs-question-right">
-                                <h4>CÂU 1:</h4>
-                                <p>Bạn thích toán học? bạn thích những con số?</p>
-                                <h4>Đánh giá :</h4>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+                    @foreach($branchs as $branch)
+                        <div class="recommender-branch col-md-12">
+                            <div class="row">
+                                <div class="col-md-4 recommender-branch-left">
+                                    <img src="/images/branchcnpm.jpg" alt="math">
+                                </div>
+                                <div class="col-md-8 recommender-branch-right">
+                                    <h4>{{ $branch->name }}</h4>
+                                    <p>{{ $branch->description }}</p>
+                                    <div class="global-btn view-branch">
+                                        <a href="{{ route('homepage.detail-branch', $branch->id) }}">XEM THÊM
+                                            <span class="ti-arrow-right"></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="rs-question col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 rs-question-left">
-                                <img src="/images/cntt.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 rs-question-right">
-                                <h4>CÂU 2:</h4>
-                                <p>Bạn thích thú với máy tính và phần mềm? </p>
-                                <h4>Đánh giá :</h4>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rs-question col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 rs-question-left">
-                                <img src="/images/idea.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 rs-question-right">
-                                <h4>CÂU 3:</h4>
-                                <p>Sự sáng tạo có làm bạn hứng thú?</p>
-                                <h4>Đánh giá :</h4>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rs-question col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 rs-question-left">
-                                <img src="/images/stronger.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 rs-question-right">
-                                <h4>CÂU 4:</h4>
-                                <p>Bạn có thể chịu được áp lực công việc cao?</p>
-                                <h4>Đánh giá :</h4>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="global-btn post-answer-btn">
-                            <a href="{{ route('homepage.recommender') }}">GỬI CÂU TRẢ LỜI
-                                <span class="ti-arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -162,6 +128,22 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
+        {{--<div class="check-auth">--}}
+        {{--<img src="/images/checkAuth.jpg" alt="">--}}
+        {{--</div>--}}
+        <a class="btn-messenger">
+            <img src="/images/mess.png" alt="facebook messenger">
+        </a>
+        <div class="facebook-messenger fb-page">
+            <div class="container messages">
+                <div class="content fb-mess" id="app">
+                    <botman-tinker></botman-tinker>
+                </div>
+            </div>
+        </div>
+        <a class="close">
+            <img src="/images/close.png" alt="facebook messenger close">
+        </a>
         <div class="container">
             <div class="footer-content">
                 <img class="margin-top-70 img-responsive" src="/images/images.jpg" alt="">
@@ -205,7 +187,7 @@
                         <h4 class="text-green">SITEMAP</h4>
                         <ul class="sitemap">
                             <li><a href="">Trang chủ</a></li>
-                            <li><a href="#">Ngành Học</a></li>
+                            <li><a href="{{ route('homepage.list-branch') }}">Ngành Học</a></li>
                             <li><a href="#">Tư Vấn</a></li>
                         </ul>
                     </div>
@@ -253,7 +235,7 @@
       return;
     if (st > lastScrollTop && st > navbarHeight) {
       // Scroll Down
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           $('nav').removeClass('nav-down').addClass('nav-up');
         }
@@ -264,7 +246,7 @@
         @endif
     } else {
       // Scroll Up
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           if (st + $(window).height() < $(document).height()) {
             $('nav').removeClass('nav-up').addClass('nav-down');
@@ -286,6 +268,29 @@
     }
     lastScrollTop = st;
   }
+
+  $(document).ready(function () {
+    $('.btn-messenger').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "block");
+      $('.close').css("display", "block");
+    });
+  });
+  $(document).ready(function () {
+    $('.close').click(function () {
+      $(this).css("display", "none");
+      $('.facebook-messenger').css("display", "none");
+      $('.btn-messenger').css("display", "block");
+    });
+  });
+  $('.ChatInput').keypress(function (e) {
+    let messages = $('.ChatLog');
+    if (e.which == 13) {
+      messages.animate({
+        scrollTop: messages.get(0).scrollHeight
+      }, 2000)
+    }
+  })
 </script>
 </body>
 

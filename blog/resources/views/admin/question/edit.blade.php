@@ -12,33 +12,33 @@
         <div class="col-md-12">
             <div class="box box-primary clearfix">
                 <div class="box-body">
-                    {!! Form::model($branch, ['route' => 'admin.branch.store','enctype' => 'multipart/form-data', 'method' => 'post']) !!}
+                    {!! Form::model($question, ['route' => ['admin.question.update', $question->id], 'enctype' => 'multipart/form-data', 'method' => 'put']) !!}
                     <div class="tab-content" id="createClass" style="display: block;">
                         <div class="col-md-6">
-                            <div class="form-group clearfix {{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label class="control-label" for="name">Name  :</label>
-                                {!! Form::text('name', null, ['class' => 'form-control','id' => 'name','placeholder' => 'Enter name']) !!}
-                                @if ($errors->has('name'))
+                            <div class="form-group clearfix {{ $errors->has('content') ? ' has-error' : '' }}">
+                                <label class="control-label" for="content">Content * :</label>
+                                {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'content','placeholder' => 'Enter content']) !!}
+                                @if ($errors->has('content'))
                                     <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
+                                    <strong>{{ $errors->first('content') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <div class="form-group clearfix {{ $errors->has('description') ? ' has-error' : '' }}">
-                                <label class="control-label" for="description">Description :</label>
-                                {!! Form::textarea('description', null, ['class' => 'form-control','id' => 'description','placeholder' => 'Enter description']) !!}
-                                @if ($errors->has('description'))
+                            <div class="form-group clearfix {{ $errors->has('answer_a') ? ' has-error' : '' }}">
+                                <label class="control-label" for="answer_a">Answer A  :</label>
+                                {!! Form::text('answer_a', null, ['class' => 'form-control','id' => 'answerA','placeholder' => 'Enter A answer']) !!}
+                                @if ($errors->has('answer_a'))
                                     <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
+                                    <strong>{{ $errors->first('answer_a') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <div class="form-group clearfix {{ $errors->has('avatar') ? ' has-error' : '' }}">
-                                <label class="control-label" for="avatar">Avatar  :</label>
-                                {!! Form::file('avatar', null, ['class' => 'form-control','id' => 'avatar','placeholder' => 'select avatar']) !!}
-                                @if ($errors->has('avatar'))
+                            <div class="form-group clearfix {{ $errors->has('answer_b') ? ' has-error' : '' }}">
+                                <label class="control-label" for="answer_b">Answer B :</label>
+                                {!! Form::text('answer_b', null, ['class' => 'form-control','id' => 'answerB','placeholder' => 'Enter B answer']) !!}
+                                @if ($errors->has('answer_b'))
                                     <span class="help-block">
-                                    <strong>{{ $errors->first('avatar') }}</strong>
+                                    <strong>{{ $errors->first('answer_b') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -65,8 +65,5 @@
           }
         });
       });
-      $(document).ready(function () {
-        $('#lfm').click();
-      })
     </script>
 @endsection

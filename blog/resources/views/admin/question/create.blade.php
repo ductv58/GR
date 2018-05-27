@@ -2,25 +2,6 @@
 @section('content-header')
     <h1>{{ $title }}</h1>
 @stop
-@section('css')
-    <style>
-        .selected-row {
-            background-color: #8eb4cb;
-        }
-
-        .add-row > th {
-            border: none;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        textarea {
-            resize: none;
-        }
-    </style>
-@endsection
 @section('content')
     @if(session()->has('createSuccess'))
         <div class="alert alert-success">
@@ -77,15 +58,6 @@
 @section('script')
     <script src="{{asset('admin/js/select2.min.js') }}"></script>
     <script>
-      $('table').on("click", 'tr.add-row', function () {
-        let row = $(this);
-        $(row).toggleClass('selected-row');
-      });
-
-      function deleteRow() {
-        $('.selected-row').remove();
-        reIndex();
-      }
       $(function () {
         $('tbody').sortable({
           stop: function () {

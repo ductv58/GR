@@ -6,6 +6,7 @@ use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
 use App\Conversations\FirstQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use BotMan\BotMan\BotMan;
 
 class BotManController extends Controller
@@ -27,6 +28,10 @@ class BotManController extends Controller
 
     public function firstQuestion(BotMan $bot)
     {
-        $bot->startConversation(new FirstQuestion());
+        if (Auth::guard('user')->check() == null){
+            $bot->reply('Hãy đăng nhập để được tư vấn!');
+        } else {
+            $bot->startConversation(new FirstQuestion());
+        }
     }
 }

@@ -53,16 +53,13 @@
                         <a href="{{route('homepage.home')}}">Trang Chủ</a>
                     </li>
                     <li>
-                        <a href="#branch">Ngành Học</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('homepage.show_question_rs') }}">Tư Vấn</a>
+                        <a href="{{ route('homepage.list-branch') }}">Ngành Học</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guard('user')->check() == null)
                         <li class="signup-btn">
-                            <a href="#">ĐĂNG KÝ
+                            <a href="{{ route('homepage.register') }}">ĐĂNG KÝ
                                 <span class="ti-arrow-right"></span>
                             </a>
                         </li>
@@ -341,7 +338,7 @@
                         <h4 class="text-green">SITEMAP</h4>
                         <ul class="sitemap">
                             <li><a href="">Trang chủ</a></li>
-                            <li><a href="#">Ngành Học</a></li>
+                            <li><a href="{{ route('homepage.list-branch') }}">Ngành Học</a></li>
                             <li><a href="#">Tư Vấn</a></li>
                         </ul>
                     </div>

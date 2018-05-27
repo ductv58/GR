@@ -57,7 +57,7 @@
                     </table>
                     {{--<div class="text-center">{{ $questions->links() }}</div>--}}
                 @else
-                    <h2 class="no-result text-center">{{ trans('messages.no_class') }}</h2>
+                    <h2 class="no-result text-center">{{ trans('messages.admin.no_question') }}</h2>
                 @endif
             </div>
         </div>

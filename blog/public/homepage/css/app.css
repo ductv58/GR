@@ -12787,6 +12787,7 @@ body {
 
 .recommender {
   margin-top: 80px;
+  padding-bottom: 60px;
 }
 
 .recommender .recommender-content .recommender-content-title h2 {
@@ -12815,7 +12816,7 @@ body {
   z-index: 1;
   height: 9px;
   border-top-right-radius: 50px;
-  width: 36%;
+  width: 51%;
   background-color: #a9040e;
   left: 0;
   content: "";
@@ -12847,6 +12848,7 @@ body {
 
 .recommender .recommender-content .recommender-branch .recommender-branch-right h4 {
   color: #e02424;
+  text-transform: uppercase;
 }
 
 .recommender .recommender-content .recommender-branch .recommender-branch-right p {
@@ -13073,6 +13075,127 @@ body {
   max-height: 330px;
   overflow-y: auto;
   padding: 0;
+}
+
+.detail-branch-top {
+  padding: 0;
+}
+
+.detail-branch-top img {
+  width: 100%;
+}
+
+.detail-branch-content .detail-branch-title h2 {
+  color: #941c1c;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 57px;
+  margin: 120px 0 0 0;
+  padding-bottom: 2%;
+  position: relative;
+}
+
+.detail-branch-content .detail-branch-title h2:after {
+  position: absolute;
+  z-index: 10;
+  height: 1px;
+  width: 70%;
+  background-color: #b92b26;
+  left: 0;
+  content: "";
+  bottom: 0;
+}
+
+.detail-branch-content .detail-branch-title h2:before {
+  position: absolute;
+  z-index: 1;
+  height: 9px;
+  border-top-right-radius: 50px;
+  width: 34%;
+  background-color: #a9040e;
+  left: 0;
+  content: "";
+  bottom: 0;
+}
+
+.detail-branch-content .description-branch {
+  margin-top: 5%;
+}
+
+.detail-branch-content .description-branch .branch-name {
+  color: #a9040e;
+  font-size: 24px;
+}
+
+.detail-branch-content .description-branch .branch-name .branch-name-strong {
+  font-weight: bold;
+}
+
+.detail-branch-content .description-branch .info-branch {
+  padding-right: 30%;
+  color: #c81911;
+}
+
+.success-box {
+  display: none;
+  margin: 50px 0;
+  padding: 10px 10px;
+  border: 1px solid #eee;
+  background: #f9f9f9;
+}
+
+.success-box img {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.success-box > div {
+  vertical-align: top;
+  display: inline-block;
+  color: #888;
+}
+
+/* Rating Star Widgets Style */
+
+.rating-stars ul {
+  list-style-type: none;
+  padding: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.rating-stars ul > li.star {
+  display: inline-block;
+}
+
+/* Idle State of the stars */
+
+.rating-stars ul > li.star > i.fa {
+  font-size: 2.5em;
+  /* Change the size of the stars */
+  color: #ccc;
+  /* Color on idle state */
+}
+
+/* Hover state of the stars */
+
+.rating-stars ul > li.star.hover > i.fa {
+  color: #FFCC36;
+}
+
+/* Selected state of the stars */
+
+.rating-stars ul > li.star.selected > i.fa {
+  color: #FF912C;
+}
+
+.rating-branch {
+  padding-bottom: 5%;
+}
+
+.rating-branch h4 {
+  color: #a9040e;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {

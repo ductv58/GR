@@ -16,6 +16,7 @@ class CreateBranchsTable extends Migration
         Schema::create('branchs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('avatar')->nullable();
             $table->text('description');
             $table->timestamps();
         });

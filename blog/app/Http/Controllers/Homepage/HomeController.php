@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Homepage;
 
+use App\Model\Branch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -83,13 +84,23 @@ class HomeController extends Controller
         //
     }
 
-    public function showQuestionRS ()
+    public function detailBranch ($id)
     {
-        return view('homepage.show-question-rs');
+        return view('homepage.detail-branch');
     }
 
-    public function recommender ()
+    public function listBranch ()
     {
-        return view('homepage.recommender');
+        $branchs = Branch::all();
+        $data = [
+            'title' => 'DANH SÁCH CÁC NGÀNH',
+            'branchs' => $branchs
+        ];
+        return view('homepage.list-branch', $data);
+    }
+
+    public function test (Request $request, $id)
+    {
+        dd($request->all());
     }
 }

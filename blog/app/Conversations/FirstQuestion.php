@@ -74,28 +74,28 @@ class FirstQuestion extends Conversation
                 $this->ask($question, function (Answer $answer) {
                     if ($answer->isInteractiveMessageReply()) {
                         if ($answer->getValue() === 'a') {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
                             $this->say('ban chon A');
                             $this->index++;
                             $this->askReason();
                         } else {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
                             $this->say('ban chon B');
                             $this->index++;
                             $this->askReason();
                         }
                     } else {
                         if (($answer->getText() === 'A') || ($answer->getText() === 'a')) {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
                             $this->say('ban chon A');
                             $this->index++;
                             $this->askReason();
                         } elseif (($answer->getText() === 'B') || ($answer->getText() === 'b')) {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
                             $this->say('ban chon B');
                             $this->index++;
                             $this->askReason();

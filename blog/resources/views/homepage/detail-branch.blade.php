@@ -6,11 +6,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ mix('/homepage/css/app.css') }}">
 </head>
 
 <body>
+<script>
+  window.fbAsyncInit = function () {
+    ee
+    FB.init({
+      appId: '1541324475987083',
+      xfbml: true,
+      version: 'v2.6'
+    });
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <header class="event-header">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -22,100 +43,100 @@
                     <span class="icon-bar bar-left "></span>
                     <span class="icon-bar bar-right"></span>
                 </button>
-                <a href="{{ route('homepage.index') }}">
+                <a href="{{ route('homepage.home') }}">
                     <img src="/images/images.png" alt="">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="{{route('homepage.index')}}">Trang Chủ</a>
+                        <a href="{{route('homepage.home')}}">Trang Chủ</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">Ngành Học</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('homepage.show_question_rs') }}">Tư Vấn</a>
+                        <a href="{{ route('homepage.list-branch') }}">Ngành Học</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="signup-btn">
-                        <a href="#">ĐĂNG KÝ
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
-                    <li class="signin-btn">
-                        <a href="#">ĐĂNG NHẬP
-                            <span class="ti-arrow-right"></span>
-                        </a>
-                    </li>
+                    @if (Auth::guard('user')->check() == null)
+                        <li class="signup-btn">
+                            <a href="{{ route('homepage.register') }}">ĐĂNG KÝ
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
+                        <li class="signin-btn">
+                            <a href="{{ route('homepage.login') }}">ĐĂNG NHẬP
+                                <span class="ti-arrow-right"></span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false" aria-haspopup="true">
+                                {{ Auth::guard('user')->user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('homepage.logout') }}">LogOut</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<div class="recommender container-fluid">
+<div class="detail-branch-top container-fluid">
+    <img src="/images/Rectangle 2.jpg" alt="">
+</div>
+<div class="detail-branch-content container-fluid">
     <div class="container">
         <div class="row">
-            <div class="recommender-content col-md-12">
-                <div class="row">
-                    <div class="recommender-content-title col-md-12">
-                        <h2>KẾT QUẢ TƯ VẤN</h2>
-                    </div>
-                    <div class="recommender-branch col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 recommender-branch-left">
-                                <img src="/images/branchcnpm.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 recommender-branch-right">
-                                <h4>CÔNG NGHỆ PHẦN MỀM</h4>
-                                <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                    Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ ...</p>
-                                <div class="global-btn view-branch">
-                                    <a href="#">XEM THÊM
-                                        <span class="ti-arrow-right"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommender-branch col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 recommender-branch-left">
-                                <img src="/images/httt.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 recommender-branch-right">
-                                <h4>HỆ THỐNG THÔNG TIN</h4>
-                                <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                    Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ ...</p>
-                                <div class="global-btn view-branch">
-                                    <a href="#">XEM THÊM
-                                        <span class="ti-arrow-right"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommender-branch col-md-12 margin-bot-60">
-                        <div class="row">
-                            <div class="col-md-4 recommender-branch-left">
-                                <img src="/images/slibar.jpg" alt="math">
-                            </div>
-                            <div class="col-md-8 recommender-branch-right">
-                                <h4>KHOA HỌC MÁY TÍNH</h4>
-                                <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho việc phát triển, sử dụng và bảo trì phần mềm.
-                                    Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ ...</p>
-                                <div class="global-btn view-branch">
-                                    <a href="#">XEM THÊM
-                                        <span class="ti-arrow-right"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="detail-branch-title col-md-12">
+                <h2>CHI TIẾT NGÀNH</h2>
+            </div>
+            <div class="col-md-12 description-branch">
+                <p class="branch-name"><span class="branch-name-strong">Về ngành: </span><i>xxx</i></p>
+                <p class="info-branch">Từng đứng trên lập trường các bạn, chúng tôi hiểu các bạn đang cần giải quyết
+                    những vấn đề xoay quanh
+                    đó. Do đó chúng tôi tạo ra trang
+                    web này hy vọng sẽ giúp các bạn phần nào giải quyết được những vấn đề đang trăn trở.</p>
             </div>
         </div>
+    </div>
+</div>
+<div class="rating-branch container-fluid">
+    <div class="container">
+        <h4>Bạn có yêu thích Ngành này không?</h4>
+        <section class='rating-widget'>
+            <!-- Rating Stars Box -->
+            <div class='rating-stars'>
+                <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                </ul>
+            </div>
+            <div class='success-box'>
+                <div class='clearfix'></div>
+                <img alt='tick image' width='32' src='https://i.imgur.com/3C3apOp.png'/>
+                <div class='text-message'></div>
+                <div class='clearfix'></div>
+            </div>
+        </section>
     </div>
 </div>
 <footer class="footer">
@@ -128,6 +149,9 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
+        {{--<div class="check-auth">--}}
+        {{--<img src="/images/checkAuth.jpg" alt="">--}}
+        {{--</div>--}}
         <a class="btn-messenger">
             <img src="/images/mess.png" alt="facebook messenger">
         </a>
@@ -184,7 +208,7 @@
                         <h4 class="text-green">SITEMAP</h4>
                         <ul class="sitemap">
                             <li><a href="">Trang chủ</a></li>
-                            <li><a href="#">Ngành Học</a></li>
+                            <li><a href="{{ route('homepage.list-branch') }}">Ngành Học</a></li>
                             <li><a href="#">Tư Vấn</a></li>
                         </ul>
                     </div>
@@ -210,6 +234,69 @@
     </div>
 </footer>
 <script src="{{ mix('/homepage/js/app.js') }}"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+
+    /* 1. Visualizing things on Hover - See next part for action on click */
+    $('#stars li').on('mouseover', function () {
+      let onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+      // Now highlight all the stars that's not after the current hovered star
+      $(this).parent().children('li.star').each(function (e) {
+        if (e < onStar) {
+          $(this).addClass('hover');
+        }
+        else {
+          $(this).removeClass('hover');
+        }
+      });
+
+    }).on('mouseout', function () {
+      $(this).parent().children('li.star').each(function (e) {
+        $(this).removeClass('hover');
+      });
+    });
+
+
+    /* 2. Action to perform on click */
+    $('#stars li').on('click', function () {
+      let onStar = parseInt($(this).data('value'), 10); // The star currently selected
+      let stars = $(this).parent().children('li.star');
+
+      for (i = 0; i < stars.length; i++) {
+        $(stars[i]).removeClass('selected');
+      }
+
+      for (i = 0; i < onStar; i++) {
+        $(stars[i]).addClass('selected');
+      }
+
+      // JUST RESPONSE (Not needed)
+      let ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+      let data = {
+        '_token':'{{ csrf_token() }}',
+        'rate' : ratingValue
+      }
+      $.ajax({
+        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url         : '{{ URL::route('homepage.detail-branch') }}', // the url where we want to POST
+        data        : data, // our data object
+        dataType    : 'json', // what type of data do we expect back from the server
+        encode      : true,
+      })
+
+    });
+
+
+  });
+
+
+  function responseMessage(msg) {
+    $('.success-box').fadeIn(200);
+    $('.success-box div.text-message').html("<span>" + msg + "</span>");
+  }
+</script>
 <script>
   let didScroll;
   let lastScrollTop = 0;
@@ -232,7 +319,7 @@
       return;
     if (st > lastScrollTop && st > navbarHeight) {
       // Scroll Down
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           $('nav').removeClass('nav-down').addClass('nav-up');
         }
@@ -243,7 +330,7 @@
         @endif
     } else {
       // Scroll Up
-        @if(\Request::route()->getName() == "homepage.index")
+        @if(\Request::route()->getName() == "homepage.home")
         if ($(window).width() >= 768) {
           if (st + $(window).height() < $(document).height()) {
             $('nav').removeClass('nav-up').addClass('nav-down');
@@ -265,6 +352,7 @@
     }
     lastScrollTop = st;
   }
+
   $(document).ready(function () {
     $('.btn-messenger').click(function () {
       $(this).css("display", "none");
@@ -279,6 +367,14 @@
       $('.btn-messenger').css("display", "block");
     });
   });
+  $('.ChatInput').keypress(function (e) {
+    let messages = $('.ChatLog');
+    if (e.which == 13) {
+      messages.animate({
+        scrollTop: messages.get(0).scrollHeight
+      }, 2000)
+    }
+  })
 </script>
 </body>
 

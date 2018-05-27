@@ -76,7 +76,13 @@ class ManagesQuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = QuestionRecommender::findOrFail($id);
+        $title = 'Edit question ID ' . $question->name;
+        $data = [
+            'question' => $question,
+            'title' => $title,
+        ];
+        return view('admin.question.edit', $data);
     }
 
     /**
@@ -88,7 +94,12 @@ class ManagesQuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = QuestionRecommender::findOrFail($id);
+        $question->content = $request->content;
+        $question->answer_a = $request->answer_a;
+        $question->answer_b = $request->answer_b;
+        $question->save();
+        return redirect()->route('admin.question.index')->with(['createSuccess' => trans('messages.create_course_success')]);
     }
 
     /**

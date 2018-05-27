@@ -32,6 +32,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected function guard()
+    {
+        return Auth::guard('user');
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -47,27 +52,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public function showRegisterForm()
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+        if (Auth::guard('user')->check()) {
+            return redirect()->route('homepage.home');
+        }
+        return view('homepage.auth.register');
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Model\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        $this->guard()->login($user);
+        return redirect()->route('homepage.home');
     }
 }

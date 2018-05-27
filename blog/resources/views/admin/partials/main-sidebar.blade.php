@@ -27,9 +27,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Create Branch </a>
+                    <li><a href="{{ route('admin.branch.create') }}"><i class="fa fa-circle-o"></i> Create Branch </a>
                     </li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> List Branch</a>
+                    <li><a href="{{ route('admin.branch.index') }}"><i class="fa fa-circle-o"></i> List Branch</a>
                     </li>
                 </ul>
             </li>
