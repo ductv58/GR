@@ -97,11 +97,8 @@
                 <h2>CHI TIẾT NGÀNH</h2>
             </div>
             <div class="col-md-12 description-branch">
-                <p class="branch-name"><span class="branch-name-strong">Về ngành: </span><i>xxx</i></p>
-                <p class="info-branch">Từng đứng trên lập trường các bạn, chúng tôi hiểu các bạn đang cần giải quyết
-                    những vấn đề xoay quanh
-                    đó. Do đó chúng tôi tạo ra trang
-                    web này hy vọng sẽ giúp các bạn phần nào giải quyết được những vấn đề đang trăn trở.</p>
+                <p class="branch-name"><span class="branch-name-strong">Về ngành: </span><i>{{ $branch->name }}</i></p>
+                <p class="info-branch">{{ $branch->description }}</p>
             </div>
         </div>
     </div>
@@ -280,7 +277,7 @@
       }
       $.ajax({
         type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : '{{ URL::route('homepage.detail-branch') }}', // the url where we want to POST
+        url         : '{{ URL::route('homepage.detail-branch', $branch->id) }}', // the url where we want to POST
         data        : data, // our data object
         dataType    : 'json', // what type of data do we expect back from the server
         encode      : true,

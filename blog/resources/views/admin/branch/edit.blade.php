@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <div class="box box-primary clearfix">
                 <div class="box-body">
-                    {!! Form::model($branch, ['route' => 'admin.branch.store','enctype' => 'multipart/form-data', 'method' => 'post']) !!}
+                    {!! Form::model($branch, [['route' => 'admin.branch.update', $branch->id],'enctype' => 'multipart/form-data', 'method' => 'post']) !!}
                     <div class="tab-content" id="createClass" style="display: block;">
                         <div class="col-md-6">
                             <div class="form-group clearfix {{ $errors->has('name') ? ' has-error' : '' }}">

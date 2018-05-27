@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Homepage', 'as' => 'homepage.'], function () {
     Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('/detail-branch/{id}', ['as' => 'detail-branch', 'uses' => 'HomeController@detailBranch']);
     Route::get('/list-branch', ['as' => 'list-branch', 'uses' => 'HomeController@listBranch']);
-    Route::post('/detail-branch', ['as' => 'detail-branch', 'uses' => 'HomeController@test']);
+    Route::post('/detail-branch/{id}', ['as' => 'detail-branch', 'uses' => 'HomeController@postRate']);
 });
 Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::get('/admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'AdminController@index']);

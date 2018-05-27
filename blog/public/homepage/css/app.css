@@ -12862,6 +12862,49 @@ body {
   padding: 0 20px;
 }
 
+.recommender .paginate {
+  float: right;
+}
+
+.recommender .paginate ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recommender .paginate ul li {
+  float: right;
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+.recommender .paginate ul li a {
+  color: black;
+  background-color: transparent;
+  border: 0;
+}
+
+.recommender .paginate ul li.active a {
+  color: #ff0512;
+}
+
+.recommender .paginate ul li.active a:hover {
+  border: none;
+  background: none;
+}
+
+.recommender .paginate ul li.disabled a {
+  pointer-events: none;
+}
+
+.recommender .paginate ul li.disabled a:hover {
+  border: none;
+  background: none;
+}
+
 .footer {
   background-color: white;
 }
@@ -13196,6 +13239,10 @@ body {
 
 .rating-branch h4 {
   color: #a9040e;
+}
+
+.ChatLog__avatar {
+  display: none;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {

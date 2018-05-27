@@ -72,37 +72,37 @@ class FirstQuestion extends Conversation
                         Button::create('B.' . $questionRS->answer_b)->value('b'),
                     ]);
                 $this->ask($question, function (Answer $answer) {
-                    if ($answer->isInteractiveMessageReply()) {
-                        if ($answer->getValue() === 'a') {
-                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
-                            $this->say('ban chon A');
-                            $this->index++;
-                            $this->askReason();
-                        } else {
-                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
-                            $this->say('ban chon B');
-                            $this->index++;
-                            $this->askReason();
-                        }
-                    } else {
+//                    if ($answer->isInteractiveMessageReply()) {
+//                        if ($answer->getValue() === 'a') {
+//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+//                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'a']]);
+//                            $this->say('ban chon A');
+//                            $this->index++;
+//                            $this->askReason();
+//                        } else {
+//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+//                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'b']]);
+//                            $this->say('ban chon B');
+//                            $this->index++;
+//                            $this->askReason();
+//                        }
+//                    } else {
                         if (($answer->getText() === 'A') || ($answer->getText() === 'a')) {
                             $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'a']);
+                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'a']]);
                             $this->say('ban chon A');
                             $this->index++;
                             $this->askReason();
                         } elseif (($answer->getText() === 'B') || ($answer->getText() === 'b')) {
                             $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync($this->questionIndex, ['answer' => 'b']);
+                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'b']]);
                             $this->say('ban chon B');
                             $this->index++;
                             $this->askReason();
                         } else {
                             $this->failAnswer();
                         }
-                    }
+//                    }
                 });
             }
         }
@@ -173,12 +173,13 @@ class FirstQuestion extends Conversation
             foreach ($this->userS as $userS) {
                 $sumUserS = $sumUserS + $userS;
             }
+            //$this->say('Danh sách các ngành theo thứ tự phù hợp giảm dần từ trẽn xuống:');
             foreach ($bracnhs as $bracnh) {
                 if (!isset($this->recommenderSystem[$bracnh->id])) {
                     $this->recommenderSystem[$bracnh->id] = 0;
                 }
                 $this->recommenderSystem[$bracnh->id] = ($this->thisRecomment[$bracnh->id])/$sumUserS;
-                $this->say($bracnh->name.$this->recommenderSystem[$bracnh->id]);
+                $this->say($bracnh->name);
             }
         }
     }

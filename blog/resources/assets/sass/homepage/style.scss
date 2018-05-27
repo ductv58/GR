@@ -338,6 +338,7 @@ body {
       }
     }
   }
+
 }
 
 //show question rs
@@ -506,6 +507,43 @@ body {
         }
       }
     }
+  }
+  .paginate {
+    float: right;
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        float: right;
+        list-style-type: none;
+        padding-left: 30px;
+
+        a {
+          color: black;
+          background-color: transparent;
+          border: 0;
+        }
+        &.active {
+          a {
+            color: #ff0512;
+            &:hover {
+              border: none;
+              background: none;
+            }
+          }
+        }
+        &.disabled {
+          a {
+            pointer-events: none;
+            &:hover {
+              border: none;
+              background: none;
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 
@@ -800,5 +838,7 @@ body {
     color: #a9040e;
   }
 }
-
+.ChatLog__avatar {
+  display:none;
+}
 

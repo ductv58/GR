@@ -113,6 +113,34 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="paginate">
+                        @if ($branchs->lastPage() > 1)
+                            <ul class="pagination">
+                                <li class="{{ ($branchs->currentPage() == 1) ? 'disabled' : '' }}">
+                                    <a href="{{ $branchs->url(1) }}"><span
+                                                class="ti-angle-double-left"></span></a>
+                                </li>
+                                <li class="{{ ($branchs->currentPage() == 1) ? 'disabled' : '' }}">
+                                    <a href="{{ $branchs->url(1) }}"><span
+                                                class="ti-angle-left"></span></a>
+                                </li>
+                                @for ($i = 1; $i <= $branchs->lastPage(); $i++)
+                                    <li class="{{ ($branchs->currentPage() == $i) ? 'active' : '' }}">
+                                        <a href="{{ $branchs->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="{{ ($branchs->currentPage() == $branchs->lastPage()) ? ' disabled' : '' }}">
+                                    <a href="{{ $branchs->url($branchs->currentPage()+1) }}"><span
+                                                class="ti-angle-right"></span></a>
+                                </li>
+                                <li class="{{ ($branchs->currentPage() == $branchs->lastPage()) ? ' disabled' : '' }}">
+                                    <a href="{{ $branchs->url($branchs->currentPage()+1) }}"><span
+                                                class="ti-angle-double-right"></span></a>
+                                </li>
+                            </ul>
+                        @endif
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Homepage;
 
 use App\Model\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Model\User;
 
 class HomeController extends Controller
 {
@@ -31,7 +33,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +44,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +55,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -64,8 +66,8 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -76,7 +78,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -84,14 +86,18 @@ class HomeController extends Controller
         //
     }
 
-    public function detailBranch ($id)
+    public function detailBranch($id)
     {
-        return view('homepage.detail-branch');
+        $branch = Branch::findOrFail($id);
+        $data = [
+            'branch' => $branch
+        ];
+        return view('homepage.detail-branch', $data);
     }
 
-    public function listBranch ()
+    public function listBranch()
     {
-        $branchs = Branch::all();
+        $branchs = Branch::paginate(4);
         $data = [
             'title' => 'DANH SÁCH CÁC NGÀNH',
             'branchs' => $branchs
@@ -99,8 +105,14 @@ class HomeController extends Controller
         return view('homepage.list-branch', $data);
     }
 
-    public function test (Request $request, $id)
+    public function postRate(Request $request, $id)
     {
-        dd($request->all());
+//    dd($request->rate);
+        if (Auth::guard('user')->check() != null) {
+
+            $branch = Branch::findOrFail($id);
+            $user = User::findOrFail(Auth::guard('user')->user()->id);
+            $user->branchs()->sync([$branch->id => ['rate' => $request->rate]]);
+        }
     }
 }
