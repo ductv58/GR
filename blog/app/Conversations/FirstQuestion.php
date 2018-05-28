@@ -61,6 +61,7 @@ class FirstQuestion extends Conversation
     public function askReason()
     {
         $questionRSs = QuestionRecommender::all();
+        //show question recommender
         foreach ($questionRSs as $key => $questionRS) {
             if ($key == $this->index) {
                 $this->questionIndex = $questionRS->id;
@@ -72,41 +73,42 @@ class FirstQuestion extends Conversation
                         Button::create('B.' . $questionRS->answer_b)->value('b'),
                     ]);
                 $this->ask($question, function (Answer $answer) {
-//                    if ($answer->isInteractiveMessageReply()) {
-//                        if ($answer->getValue() === 'a') {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'a']]);
-//                            $this->say('ban chon A');
-//                            $this->index++;
-//                            $this->askReason();
-//                        } else {
-//                            $user = User::findOrFail(Auth::guard('user')->user()->id);
-//                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'b']]);
-//                            $this->say('ban chon B');
-//                            $this->index++;
-//                            $this->askReason();
-//                        }
-//                    } else {
+                    if ($answer->isInteractiveMessageReply()) {
+                        if ($answer->getValue() === 'a') {
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->syncWithoutDetaching([$this->questionIndex => ['answer' => 'a']]);
+                            $this->say('ban chon A');
+                            $this->index++;
+                            $this->askReason();
+                        } else {
+                            $user = User::findOrFail(Auth::guard('user')->user()->id);
+                            $user->questionRecommenders()->syncWithoutDetaching([$this->questionIndex => ['answer' => 'b']]);
+                            $this->say('ban chon B');
+                            $this->index++;
+                            $this->askReason();
+                        }
+                    } else {
                         if (($answer->getText() === 'A') || ($answer->getText() === 'a')) {
                             $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'a']]);
+                            $user->questionRecommenders()->syncWithoutDetaching([$this->questionIndex => ['answer' => 'a']]);
                             $this->say('ban chon A');
                             $this->index++;
                             $this->askReason();
                         } elseif (($answer->getText() === 'B') || ($answer->getText() === 'b')) {
                             $user = User::findOrFail(Auth::guard('user')->user()->id);
-                            $user->questionRecommenders()->sync([$this->questionIndex => ['answer' => 'b']]);
+                            $user->questionRecommenders()->syncWithoutDetaching([$this->questionIndex => ['answer' => 'b']]);
                             $this->say('ban chon B');
                             $this->index++;
                             $this->askReason();
                         } else {
                             $this->failAnswer();
                         }
-//                    }
+                    }
                 });
             }
         }
-        if ($this->index > (count($questionRSs)-1)) {
+        //then get all of question -> recommender
+        if ($this->index > (count($questionRSs) - 1)) {
             $thisUser = User::findOrFail(Auth::guard('user')->user()->id);
             $thisUserQuestion = [];
             $questionLists = QuestionRecommender::all();
@@ -118,7 +120,7 @@ class FirstQuestion extends Conversation
                         array_push($thisUserQuestion, $thisUserAnswer->pivot->answer);
                     }
                     $index++;
-                    if ($index == (count($thisUser->questionRecommenders())-1)) {
+                    if ($index == (count($thisUser->questionRecommenders()) - 1)) {
                         array_push($thisUserQuestion, 'no answer');
                     }
                 }
@@ -136,13 +138,14 @@ class FirstQuestion extends Conversation
                                 array_push($userCurrentQuestion, $userCurrentAnswer->pivot->answer);
                             }
                             $index++;
-                            if ($index == (count($userCurrent->questionRecommenders())-1)) {
+                            if ($index == (count($userCurrent->questionRecommenders()) - 1)) {
                                 array_push($userCurrentQuestion, 'no answer');
                             }
                         }
                     }
+                    //độ tương đồng hai user
                     $currentUserS = array_diff_assoc($thisUserQuestion, $userCurrentQuestion);
-                    $result = count($currentUserS)/((count($questionLists)*2)-count($currentUserS));
+                    $result = count($currentUserS) / ((count($questionLists) * 2) - count($currentUserS));
                     $this->userS[$userCurrent->id] = $result;
                     foreach ($bracnhs as $bracnh) {
                         $index = 0;
@@ -151,7 +154,7 @@ class FirstQuestion extends Conversation
                                 $userCurrentRates[$bracnh->id] = $userCurrentBranch->pivot->rate;
                             }
                             $index++;
-                            if ($index == (count($userCurrent->branchs)-1)) {
+                            if ($index == (count($userCurrent->branchs) - 1)) {
                                 $userCurrentRates[$bracnh->id] = 0;
                             }
                         }
@@ -161,11 +164,16 @@ class FirstQuestion extends Conversation
                         foreach ($userCurrentRates as $userCurrentRate) {
                             $rateM = $rateM + $userCurrentRate;
                         }
-                        $rateM = $rateM/count($userCurrentRates);
+                        $rateM = $rateM / count($userCurrentRates);
                         if (!isset($this->thisRecomment[$bracnh->id])) {
-                            $this->thisRecomment[$bracnh->id]=0;
+                            $this->thisRecomment[$bracnh->id] = 0;
                         }
-                        $this->thisRecomment[$bracnh->id] = $this->thisRecomment[$bracnh->id] + $result*($userCurrentRates[$bracnh->id]-$rateM);
+                        foreach ($userCurrentRates as $key => $userCurrentRate) {
+                            if ($bracnh->id == $key) {
+                                $this->thisRecomment[$bracnh->id] = $this->thisRecomment[$bracnh->id] + $result * ($userCurrentRates[$key] - $rateM);
+                            }
+                        }
+
                     }
                 }
             }
@@ -173,12 +181,13 @@ class FirstQuestion extends Conversation
             foreach ($this->userS as $userS) {
                 $sumUserS = $sumUserS + $userS;
             }
-            //$this->say('Danh sách các ngành theo thứ tự phù hợp giảm dần từ trẽn xuống:');
+            $this->say('Sau đây là danh sách các ngành phù hợp với bạn');
+            $this->say('Độ phù hợp giảm dần từ trên xuống:');
             foreach ($bracnhs as $bracnh) {
                 if (!isset($this->recommenderSystem[$bracnh->id])) {
                     $this->recommenderSystem[$bracnh->id] = 0;
                 }
-                $this->recommenderSystem[$bracnh->id] = ($this->thisRecomment[$bracnh->id])/$sumUserS;
+                $this->recommenderSystem[$bracnh->id] = ($this->thisRecomment[$bracnh->id]) / $sumUserS;
                 $this->say($bracnh->name);
             }
         }

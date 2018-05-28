@@ -112,7 +112,7 @@ class HomeController extends Controller
 
             $branch = Branch::findOrFail($id);
             $user = User::findOrFail(Auth::guard('user')->user()->id);
-            $user->branchs()->sync([$branch->id => ['rate' => $request->rate]]);
+            $user->branchs()->syncWithoutDetaching([$branch->id => ['rate' => $request->rate]]);
         }
     }
 }
