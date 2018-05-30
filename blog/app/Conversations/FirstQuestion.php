@@ -188,7 +188,14 @@ class FirstQuestion extends Conversation
                     $this->recommenderSystem[$bracnh->id] = 0;
                 }
                 $this->recommenderSystem[$bracnh->id] = ($this->thisRecomment[$bracnh->id]) / $sumUserS;
-                $this->say($bracnh->name);
+            }
+            arsort($this->recommenderSystem);
+            foreach ($this->recommenderSystem as $key => $value) {
+                foreach ($bracnhs as $bracnh) {
+                    if ($bracnh->id == $key) {
+                        $this->say($bracnh->name);
+                    }
+                }
             }
         }
     }
