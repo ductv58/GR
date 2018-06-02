@@ -60,7 +60,7 @@ class ManagesBranchController extends Controller
             $branch->avatar = $filename;
         }
         $branch->save();
-        return redirect()->route('admin.branch.index');
+        return redirect()->route('admin.branch.index')->with(['createSuccess' => 'A Branch is created!']);
 
     }
 
@@ -114,7 +114,7 @@ class ManagesBranchController extends Controller
             $branch->avatar = $filename;
         }
         $branch->save();
-        return redirect()->route('admin.branch.index');
+        return redirect()->route('admin.branch.index')->with(['updateSuccess' => 'A Branch is updated!']);
     }
 
     /**

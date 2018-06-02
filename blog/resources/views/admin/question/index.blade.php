@@ -4,6 +4,16 @@
 @stop
 @section('content')
     <div class="container">
+        @if(session()->has('createSuccess'))
+            <div class="alert alert-success">
+                <p>{{session()->get('createSuccess')}}</p>
+            </div>
+        @endif
+            @if(session()->has('updateSuccess'))
+                <div class="alert alert-success">
+                    <p>{{session()->get('updateSuccess')}}</p>
+                </div>
+            @endif
         <div class="row">
             <div class="box box-primary clearfix">
                 <div class="box-body">

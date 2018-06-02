@@ -54,7 +54,7 @@ class ManagesQuestionController extends Controller
         $question->answer_a = $request->answer_a;
         $question->answer_b = $request->answer_b;
         $question->save();
-        return redirect()->route('admin.question.index')->with(['createSuccess' => trans('messages.create_course_success')]);
+        return redirect()->route('admin.question.index')->with(['createSuccess' => 'A Question was created']);
     }
 
     /**
@@ -99,7 +99,7 @@ class ManagesQuestionController extends Controller
         $question->answer_a = $request->answer_a;
         $question->answer_b = $request->answer_b;
         $question->save();
-        return redirect()->route('admin.question.index')->with(['createSuccess' => trans('messages.create_course_success')]);
+        return redirect()->route('admin.question.index')->with(['updateSuccess' => 'A Question was updated']);
     }
 
     /**
