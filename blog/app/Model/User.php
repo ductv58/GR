@@ -24,4 +24,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(QuestionRecommender::class, 'answers', 'user_id', 'question_id')->withPivot('answer');
     }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

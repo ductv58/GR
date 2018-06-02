@@ -19,9 +19,9 @@ class ManagesBranchController extends Controller
     {
         $title = 'Branch page';
         if (isset($request->search_content)) {
-            $branchs = Branch::where('content', 'LIKE', "%$request->search_content%")->get();
+            $branchs = Branch::where('content', 'LIKE', "%$request->search_content%")->paginate(10);
         } else {
-            $branchs = Branch::all();
+            $branchs = Branch::paginate(10);
         }
         $data = [
             'branchs' => $branchs,

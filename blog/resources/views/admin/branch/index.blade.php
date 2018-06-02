@@ -65,6 +65,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="text-center">{{ $branchs->links() }}</div>
                 @else
                     <h2 class="no-result text-center">Không tìm thấy ngành nào!</h2>
                 @endif

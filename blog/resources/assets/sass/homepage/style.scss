@@ -843,4 +843,17 @@ body {
 .ChatLog__avatar {
   display:none;
 }
-
+.modal-footer {
+  .btn {
+    margin: 0 !important;
+    display: inline !important;
+    border: 1px solid red;
+    background: white;
+    color: red;
+    &:hover {
+      color: white;
+      background: #a9040e;
+      border: 1px solid red;
+    }
+  }
+}

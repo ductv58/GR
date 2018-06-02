@@ -19,9 +19,9 @@ class ManagesQuestionController extends Controller
     {
         $title = 'Question page';
         if (isset($request->search_content)) {
-            $questions = QuestionRecommender::where('content', 'LIKE', "%$request->search_content%")->get();
+            $questions = QuestionRecommender::where('content', 'LIKE', "%$request->search_content%")->paginate(10);
         } else {
-            $questions = QuestionRecommender::all();
+            $questions = QuestionRecommender::paginate(10);
         }
         $data = [
             'questions' => $questions,
