@@ -55,6 +55,9 @@
                     <li>
                         <a href="{{ route('homepage.list-branch') }}">Ngành Học</a>
                     </li>
+                    <li>
+                        <a role="button" onclick="report()">Phản hồi</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guard('user')->check() == null)
@@ -99,7 +102,7 @@
                         <div class="recommender-branch col-md-12">
                             <div class="row">
                                 <div class="col-md-4 recommender-branch-left">
-                                    <img src="/images/branchcnpm.jpg" alt="math">
+                                    <img src="/images/{{ $branch->avatar }}" alt="math">
                                 </div>
                                 <div class="col-md-8 recommender-branch-right">
                                     <h4>{{ $branch->name }}</h4>
@@ -140,7 +143,6 @@
                             </ul>
                         @endif
                     </div>
-                </div>
                 </div>
             </div>
         </div>
@@ -240,8 +242,56 @@
         </div>
     </div>
 </footer>
+<div class="container-fluid">
+    <div class="modal fade" id="report" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Hãy cho chúng tôi biết nhận xét của bạn đối với trang web này!</h4>
+                </div>
+                {!! Form::open() !!}
+                <div class="modal-body">
+                    {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'content','placeholder' => 'Nhập nội dung!']) !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary"
+                            onclick="postReport()">OK
+                    </button>
+                </div>
+                {!! Form::close() !!}
+            </div>
+
+        </div>
+    </div>
+</div>
+@include('homepage.report.confirm-report')
 <script src="{{ mix('/homepage/js/app.js') }}"></script>
 <script>
+  function report() {
+    $('#report').modal('show')
+  }
+
+  function postReport() {
+    let content = $("#content").val();
+    let data = {
+      '_token': '{{ csrf_token() }}',
+      'content': content
+    }
+    $.ajax({
+      type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+      url: "{{ URL::route('homepage.report') }}", // the url where we want to POST
+      data: data, // our data object
+      dataType: 'json', // what type of data do we expect back from the server
+      encode: true,
+      success: (function (res) {
+        $('#report').modal('hide');
+        $('#confirmReport').modal('show');
+      })
+    })
+  }
   let didScroll;
   let lastScrollTop = 0;
   let delta = 5;

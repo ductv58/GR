@@ -330,7 +330,6 @@
 <div class="container-fluid">
     <div class="modal fade" id="report" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -339,11 +338,8 @@
                 </div>
                 {!! Form::open() !!}
                 <div class="modal-body">
-
                     {!! Form::textarea('content', null, ['class' => 'form-control','id' => 'content','placeholder' => 'Nhập nội dung!']) !!}
-
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary"
