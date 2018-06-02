@@ -13,6 +13,11 @@
                             {!! Form::text('search_content', null, ['class' => 'form-control','id' => 'searchContent','placeholder' => 'Search content']) !!}
                         </div>
                     </div>
+                    <div class="col-sm-2">
+                        <div class="pull-right form-group">
+                            {!! Form::select('status', \App\Model\Report::SELECT_REPORT_STATUS, null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
                     <div class="col-sm-1">
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
@@ -35,18 +40,18 @@
                                 <td>{{ $report->content }}</td>
                                 <td>
                                     {!! Form::open(['route' => 'admin.report.action-report', 'method' => 'put', 'class' => 'form-position']) !!}
-                                    @if($report->status == \App\Model\Report::NOT_APPROVE)
-                                        <button class="btn btn-success block">
-                                            <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>APPROVE
-                                        </button>
-                                        {!! Form::hidden('action', \App\Model\Report::APPROVE) !!}
-                                    @endif
-
-                                    @if($report->status == \App\Model\Report::APPROVE)
+                                    @if($report->status != \App\Model\Report::NOT_APPROVE)
                                         <button class="btn btn-warning block">
-                                            <i class="fa fa-check fa-fw" aria-hidden="true"></i>NOT APPROVE
+                                            <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>NOT_APPROVE
                                         </button>
                                         {!! Form::hidden('action', \App\Model\Report::NOT_APPROVE) !!}
+                                    @endif
+
+                                    @if($report->status != \App\Model\Report::APPROVE)
+                                        <button class="btn btn-success block">
+                                            <i class="fa fa-check fa-fw" aria-hidden="true"></i>APPROVE
+                                        </button>
+                                        {!! Form::hidden('action', \App\Model\Report::APPROVE) !!}
 
                                     @endif
                                     {!! Form::hidden('id', $report->id) !!}

@@ -12,14 +12,25 @@ class ManagesReportController extends Controller
     public function index(Request $request)
     {
         $title = 'Report page';
-        if (isset($request->search_content)) {
-            $reports = Report::where('content', 'LIKE', "%$request->search_content%")->paginate(10);
+        if (isset($request->status)) {
+            $status = $request->status;
+            if ($status != 'all') {
+                $reports = Report::where('status', $status);
+            } else {
+                $reports = new Report();
+            }
         } else {
-            $reports = Report::paginate(10);
+            $reports = Report::where('status', '0');
+        }
+        if (isset($request->search_content)) {
+            $reports = $reports->where('content', 'LIKE', "%$request->search_content%")->paginate(10);
+        } else {
+            $reports = $reports->paginate(10);
         }
         $data = [
             'reports' => $reports,
-            'title' => $title
+            'title' => $title,
+            'status' => $request->status
         ];
         return view('admin.report.index', $data);
     }
