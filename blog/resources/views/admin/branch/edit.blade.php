@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <div class="box box-primary clearfix">
                 <div class="box-body">
-                    {!! Form::model($branch, [['route' => 'admin.branch.update', $branch->id],'enctype' => 'multipart/form-data', 'method' => 'post']) !!}
+                    {!! Form::model($branch, ['route' => ['admin.branch.update', $branch->id], 'enctype' => 'multipart/form-data', 'method' => 'put']) !!}
                     <div class="tab-content" id="createClass" style="display: block;">
                         <div class="col-md-6">
                             <div class="form-group clearfix {{ $errors->has('name') ? ' has-error' : '' }}">
@@ -30,6 +30,15 @@
                                 @if ($errors->has('description'))
                                     <span class="help-block">
                                     <strong>{{ $errors->first('description') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <div class="form-group clearfix {{ $errors->has('link') ? ' has-error' : '' }}">
+                                <label class="control-label" for="link">Link  :</label>
+                                {!! Form::text('link', null, ['class' => 'form-control','id' => 'link','placeholder' => 'Enter link']) !!}
+                                @if ($errors->has('link'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('link') }}</strong>
                                 </span>
                                 @endif
                             </div>

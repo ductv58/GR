@@ -17,7 +17,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homepage.index');
+        $branchs = Branch::limit(3)->get();;
+        $data = [
+            'branchs' => $branchs
+        ];
+        return view('homepage.index', $data);
     }
 
     /**

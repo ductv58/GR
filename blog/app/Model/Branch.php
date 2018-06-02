@@ -8,7 +8,7 @@ class Branch extends Model
 {
     protected $table = "branchs";
     protected $fillable = [
-        'name', 'description'
+        'name', 'description', 'link', 'avatar'
     ];
 
     public function users()

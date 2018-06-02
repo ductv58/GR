@@ -99,6 +99,8 @@
             <div class="col-md-12 description-branch">
                 <p class="branch-name"><span class="branch-name-strong">Về ngành: </span><i>{{ $branch->name }}</i></p>
                 <p class="info-branch">{{ $branch->description }}</p>
+                <p style="color: #99041c">Bạn có thể xem nhiều thông tin hơn thông qua kênh tuyển sinh của trường đại học Bách Khoa Hà Nội tại
+                    <a href="{{ $branch->link }}" target="_blank">đây</a>.</p>
             </div>
         </div>
     </div>

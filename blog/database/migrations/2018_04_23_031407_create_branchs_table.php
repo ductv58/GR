@@ -17,6 +17,7 @@ class CreateBranchsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('avatar')->nullable();
+            $table->string('link')->nullable();
             $table->text('description');
             $table->timestamps();
         });

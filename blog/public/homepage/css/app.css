@@ -12646,10 +12646,12 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   max-height: 180px;
+  min-height: 180px;
 }
 
 .branch .branch-content .branch-top .branch-top-hover .branch-top-border h2 {
   color: #bf0d0d;
+  text-transform: uppercase;
 }
 
 .branch .branch-content .branch-top .branch-top-hover .branch-top-border p {

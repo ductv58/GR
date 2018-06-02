@@ -52,6 +52,7 @@ class ManagesBranchController extends Controller
         $branch = new Branch();
         $branch->name = $request->name;
         $branch->description = $request->description;
+        $branch->link = $request->link;
         if ($request->file('avatar')) {
             $destinationPath = public_path() . '/images/';
             $filename = $request->file('avatar')->getClientOriginalName();
@@ -82,12 +83,14 @@ class ManagesBranchController extends Controller
      */
     public function edit($id)
     {
+//        dd(1);
         $branch = Branch::findOrFail($id);
         $title = 'Edit branch ' . $branch->name;
         $data = [
             'branch' => $branch,
             'title' => $title,
         ];
+//        dd(1);
         return view('admin.branch.edit', $data);
     }
 
@@ -103,6 +106,7 @@ class ManagesBranchController extends Controller
         $branch = Branch::findOrFail($id);
         $branch->name = $request->name;
         $branch->description = $request->description;
+        $branch->link = $request->link;
         if ($request->file('avatar')) {
             $destinationPath = public_path() . '/images/';
             $filename = $request->file('avatar')->getClientOriginalName();

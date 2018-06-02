@@ -31,5 +31,6 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::get('/admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'AdminController@index']);
     Route::resource('question', 'ManagesQuestionController');
     Route::resource('branch', 'ManagesBranchController');
+    Route::resource('user', 'ManagesUserController');
 });
 

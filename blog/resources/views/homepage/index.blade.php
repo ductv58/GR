@@ -114,7 +114,8 @@
                                                 Trụ sở: <span
                                                         class="owl-text-change">B1 đại học Bách Khoa Hà Nội</span>
                                             </p>
-                                            <a href="#" class="global-btn">XEM THÊM
+                                            <a href="https://soict.hust.edu.vn/" target="_blank" class="global-btn">XEM
+                                                THÊM
                                                 <span class="ti-arrow-right"></span>
                                             </a>
                                         </div>
@@ -137,7 +138,8 @@
                                                 Trụ sở: <span
                                                         class="owl-text-change">B1 đại học Bách Khoa Hà Nội</span>
                                             </p>
-                                            <a href="#" class="global-btn">XEM THÊM
+                                            <a href="https://soict.hust.edu.vn/" target="_blank" class="global-btn">XEM
+                                                THÊM
                                                 <span class="ti-arrow-right"></span>
                                             </a>
                                         </div>
@@ -160,7 +162,8 @@
                                                 Trụ sở: <span
                                                         class="owl-text-change">B1 đại học Bách Khoa Hà Nội</span>
                                             </p>
-                                            <a href="#" class="global-btn">XEM THÊM
+                                            <a href="https://soict.hust.edu.vn/" target="_blank" class="global-btn">XEM
+                                                THÊM
                                                 <span class="ti-arrow-right"></span>
                                             </a>
                                         </div>
@@ -212,57 +215,18 @@
                 </div>
                 <div class="branch-content col-md-12">
                     <div class="row">
-                        <div class="branch-top col-md-4">
-                            <div class="branch-top-hover">
-                                <div class="branch-top-border">
-                                    <img src="/images/cnpm.jpg" alt="">
-                                    <h2>CÔNG NGHỆ PHẦN MỀM</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
-                                        việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
-                                        cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
-                                        trì phần mềm.
-                                    </p>
+                        @foreach($branchs as $branch)
+                            <div class="branch-top col-md-4">
+                                <div class="branch-top-hover">
+                                    <div class="branch-top-border">
+                                        <img src="/images/{{ $branch->avatar }}" alt="">
+                                        <h2>{{ $branch->name }}</h2>
+                                        <p>{{ str_limit($branch->description, 250 , ' ...') }}</p>
+                                    </div>
+                                    <a href="{{ route('homepage.detail-branch', $branch->id) }}"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
                                 </div>
-                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
                             </div>
-                        </div>
-                        <div class="branch-top col-md-4">
-                            <div class="branch-top-hover">
-                                <div class="branch-top-border">
-                                    <img src="/images/httt.jpg" alt="">
-                                    <h2>HỆ THỐNG THÔNG TIN</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được cho
-                                        việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương pháp
-                                        cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và bảo
-                                        trì phần mềm.
-                                    </p>
-                                </div>
-                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
-                            </div>
-                        </div>
-                        <div class="branch-top col-md-4">
-                            <div class="branch-top-hover">
-                                <div class="branch-top-border">
-                                    <img src="/images/slibar.jpg" alt="">
-                                    <h2>KHOA HỌC MÁY TÍNH</h2>
-                                    <p>là sự áp dụng một cách tiếp cận có hệ thống, có kỷ luật, và định lượng được
-                                        cho
-                                        việc phát triển, sử dụng và bảo trì phần mềm.
-                                        Ngành học kỹ nghệ phần mềm bao trùm kiến thức, các công cụ, và các phương
-                                        pháp
-                                        cho việc định nghĩa yêu cầu phần mềm,
-                                        và thực hiện các tác vụ thiết kế, xây dựng, kiểm thử (software testing), và
-                                        bảo
-                                        trì phần mềm.
-                                    </p>
-                                </div>
-                                <a href="#"><p class="branch-btn">Xem thêm<span class="ti-arrow-right"></span></p></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -279,9 +243,6 @@
         <button class="btn-scroll-top">
             <span class="ti-angle-double-up"></span>
         </button>
-        {{--<div class="check-auth">--}}
-        {{--<img src="/images/checkAuth.jpg" alt="">--}}
-        {{--</div>--}}
         <a class="btn-messenger">
             <img src="/images/mess.png" alt="facebook messenger">
         </a>
@@ -339,7 +300,6 @@
                         <ul class="sitemap">
                             <li><a href="">Trang chủ</a></li>
                             <li><a href="{{ route('homepage.list-branch') }}">Ngành Học</a></li>
-                            <li><a href="#">Tư Vấn</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 col-sm-12">

@@ -33,6 +33,15 @@
                                 </span>
                                 @endif
                             </div>
+                            <div class="form-group clearfix {{ $errors->has('link') ? ' has-error' : '' }}">
+                                <label class="control-label" for="link">Link  :</label>
+                                {!! Form::text('link', null, ['class' => 'form-control','id' => 'link','placeholder' => 'Enter link']) !!}
+                                @if ($errors->has('link'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('link') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                             <div class="form-group clearfix {{ $errors->has('avatar') ? ' has-error' : '' }}">
                                 <label class="control-label" for="avatar">Avatar  :</label>
                                 {!! Form::file('avatar', null, ['class' => 'form-control','id' => 'avatar','placeholder' => 'select avatar']) !!}

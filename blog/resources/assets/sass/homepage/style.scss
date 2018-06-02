@@ -310,9 +310,11 @@ body {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             max-height: 180px;
+            min-height: 180px;
           }
           h2 {
             color: #bf0d0d;
+            text-transform: uppercase;
           }
           p{
             padding: 0 16px;
