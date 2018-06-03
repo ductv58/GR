@@ -36,19 +36,19 @@ class FirstQuestion extends Conversation
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
                 if ($answer->getValue() === 'a') {
-                    $this->say('ban chon A');
+                    $this->say('Trả lời lại');
                     $this->askReason();
                 } else {
-                    $this->say('ban chon B');
+                    $this->say('Câu tiếp theo');
                     $this->index++;
                     $this->askReason();
                 }
             } else {
                 if (($answer->getText() === 'A') || ($answer->getText() === 'a')) {
-                    $this->say('ban chon A');
+                    $this->say('Trả lời lại');
                     $this->askReason();
                 } elseif (($answer->getText() === 'B') || ($answer->getText() === 'b')) {
-                    $this->say('ban chon B');
+                    $this->say('Câu tiếp theo');
                     $this->index++;
                     $this->askReason();
                 } else {
@@ -65,14 +65,10 @@ class FirstQuestion extends Conversation
         foreach ($questionRSs as $key => $questionRS) {
             if ($key == $this->index) {
                 $this->questionIndex = $questionRS->id;
-                $question = Question::create($questionRS->content)
-                    ->fallback('Unable to ask question')
-                    ->callbackId('ask_reason')
-                    ->addButtons([
-                        Button::create('A.' . $questionRS->answer_a)->value('a'),
-                        Button::create('B.' . $questionRS->answer_b)->value('b'),
-                    ]);
-                $this->ask($question, function (Answer $answer) {
+                $this->say($questionRS->content);
+                $this->say('A.' . $questionRS->answer_a);
+                $data = 'B.' . $questionRS->answer_b;
+                $this->ask($data, function (Answer $answer) {
                     if ($answer->isInteractiveMessageReply()) {
                         if ($answer->getValue() === 'a') {
                             $user = User::findOrFail(Auth::guard('user')->user()->id);
