@@ -26,17 +26,24 @@ Route::group(['namespace' => 'Homepage', 'as' => 'homepage.'], function () {
     Route::get('/detail-branch/{id}', ['as' => 'detail-branch', 'uses' => 'HomeController@detailBranch']);
     Route::get('/list-branch', ['as' => 'list-branch', 'uses' => 'HomeController@listBranch']);
     Route::post('/detail-branch/{id}', ['as' => 'detail-branch', 'uses' => 'HomeController@postRate']);
-    Route::post('/report', ['as' => 'report', 'uses' => 'HomeController@report']);
+    Route::post('/report-homepage', ['as' => 'report', 'uses' => 'HomeController@report']);
 });
 Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
-    Route::get('/admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'AdminController@index']);
-    Route::resource('question', 'ManagesQuestionController');
-    Route::resource('branch', 'ManagesBranchController');
-    Route::resource('user', 'ManagesUserController');
-    Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-        Route::get('/', ['as' => 'index', 'uses' => 'ManagesReportController@index']);
-        Route::delete('{id}', ['as' => 'delete', 'uses' => 'ManagesReportController@destroy']);
-        Route::put('action-report', ['as' => 'action-report', 'uses' => 'ManagesReportController@actionReport']);
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('admin/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+        Route::post('admin/post-login', ['as' => 'post-login', 'uses' => 'Auth\LoginController@authenticate']);
+        Route::get('admin/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+    });
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'AdminController@index']);
+        Route::resource('question', 'ManagesQuestionController');
+        Route::resource('branch', 'ManagesBranchController');
+        Route::resource('user', 'ManagesUserController');
+        Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'ManagesReportController@index']);
+            Route::delete('{id}', ['as' => 'delete', 'uses' => 'ManagesReportController@destroy']);
+            Route::put('action-report', ['as' => 'action-report', 'uses' => 'ManagesReportController@actionReport']);
+        });
     });
 });
 

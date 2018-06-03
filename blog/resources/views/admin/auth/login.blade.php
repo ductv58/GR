@@ -2,7 +2,7 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin HapoJC</b></a>
+            <a href="#"><b>Admin Recommender</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -14,7 +14,7 @@
                                 </span>
                 </div>
             @endif
-            <form action="#" method="POST">
+            <form action="{{ route('admin.post-login') }}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                     <input type="email" class="form-control" name="email" placeholder="Email">
@@ -50,8 +50,6 @@
                 </div>
             </form>
             <!-- /.social-auth-links -->
-
-            <a href="#">Quên mật khẩu</a><br>
 
         </div>
         <!-- /.login-box-body -->

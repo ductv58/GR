@@ -19,7 +19,7 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#">Logout</a>
+          <a href="{{ route('admin.logout') }}">Logout</a>
         </li>
       </ul>
     </div>
