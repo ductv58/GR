@@ -4,60 +4,63 @@
 @stop
 @section('content')
     <div class="container">
-        @if(session()->has('createSuccess'))
-            <div class="alert alert-success">
-                <p>{{session()->get('createSuccess')}}</p>
-            </div>
-        @endif
-            @if(session()->has('updateSuccess'))
-                <div class="alert alert-success">
-                    <p>{{session()->get('updateSuccess')}}</p>
-                </div>
-            @endif
         <div class="row">
             <div class="box box-primary clearfix">
                 <div class="box-body">
-                    {!! Form::open(['route' => 'admin.question.index', 'method' => 'get']) !!}
+                    {!! Form::open(['route' => 'admin.report.index', 'method' => 'get']) !!}
                     <div class="col-sm-2">
                         <div class="input-group">
                             {!! Form::text('search_content', null, ['class' => 'form-control','id' => 'searchContent','placeholder' => 'Search content']) !!}
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="pull-right form-group">
+                            {!! Form::select('status', \App\Model\Report::SELECT_REPORT_STATUS, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                     <div class="col-sm-1">
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                     {!! Form::close() !!}
-                    <div class="col-md-2">
-                        <a href="{{ route('admin.question.create') }}"
-                           class="btn btn-success">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add a new Question
-                        </a>
-                    </div>
                 </div>
-                @if($questions->count()>0)
+                @if($reports->count()>0)
                     <table class="table table-bordered table-responsive">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Content</th>
-                            <th>Edit</th>
+                            <th>Status</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($questions as $key=>$question)
+                        @foreach($reports as $key=>$report)
                             <tr>
-                                <td>{{ $question->id }}</td>
-                                <td>{{ $question->content }}</td>
+                                <td>{{ $report->id }}</td>
+                                <td>{{ $report->content }}</td>
                                 <td>
-                                    <a href="{{ route('admin.question.edit', $question->id) }}" class="btn btn-info">
-                                        <i class="fa fa-pencil fa-fw"></i>Edit
-                                    </a>
+                                    {!! Form::open(['route' => 'admin.report.action-report', 'method' => 'put', 'class' => 'form-position']) !!}
+                                    @if($report->status != \App\Model\Report::NOT_APPROVE)
+                                        <button class="btn btn-warning block">
+                                            <i class="fa fa-exclamation-triangle fa-fw" aria-hidden="true"></i>NOT_APPROVE
+                                        </button>
+                                        {!! Form::hidden('action', \App\Model\Report::NOT_APPROVE) !!}
+                                    @endif
+
+                                    @if($report->status != \App\Model\Report::APPROVE)
+                                        <button class="btn btn-success block">
+                                            <i class="fa fa-check fa-fw" aria-hidden="true"></i>APPROVE
+                                        </button>
+                                        {!! Form::hidden('action', \App\Model\Report::APPROVE) !!}
+
+                                    @endif
+                                    {!! Form::hidden('id', $report->id) !!}
+                                    {!! Form::close() !!}
                                 </td>
                                 <td>
                                     <button class="btn btn-danger button-delete" data-toggle="modal"
                                             data-target="#popupDelete"
-                                            data-question-id="{{ $question->id }}">
+                                            data-report-id="{{ $report->id }}">
                                         <i class="fa fa-trash-o  fa-fw"></i>Delete
                                     </button>
                                 </td>
@@ -65,9 +68,9 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="text-center">{{ $questions->links() }}</div>
+                    <div class="text-center">{{ $reports->links() }}</div>
                 @else
-                    <h2 class="no-result text-center">{{ trans('messages.admin.no_question') }}</h2>
+                    <h2 class="no-result text-center">{{ trans('messages.admin.no_report') }}</h2>
                 @endif
             </div>
         </div>
@@ -80,12 +83,12 @@
     <script>
       $(document).ready(function () {
         $('.button-delete').click(function () {
-          let questionId = $(this).data('question-id');
-          $('#confirmDelete').data('id', questionId);
+          let reportId = $(this).data('report-id');
+          $('#confirmDelete').data('id', reportId);
         });
 
         $('#confirmDelete').click(function () {
-          let link = '/question/' + $(this).data('id');
+          let link = '/report/' + $(this).data('id');
           $.ajax({
             url: link,
             type: 'delete',

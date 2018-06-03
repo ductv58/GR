@@ -19,9 +19,9 @@ class ManagesUserController extends Controller
     {
         $title = 'User page';
         if (isset($request->search_content)) {
-            $users = User::where('name', 'LIKE', "%$request->search_name%")->get();
+            $users = User::where('name', 'LIKE', "%$request->search_name%")->paginate(10);
         } else {
-            $users = User::all();
+            $users = User::paginate(10);
         }
         $data = [
             'users' => $users,

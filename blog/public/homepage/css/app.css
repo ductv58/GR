@@ -12836,6 +12836,7 @@ body {
 .recommender .recommender-content .recommender-branch .recommender-branch-left img {
   width: 100%;
   max-height: 200px;
+  min-height: 200px;
   border: 1px solid #e02424;
   border-right: none;
   border-radius: 8px 0 0 8px;
@@ -13245,6 +13246,20 @@ body {
 
 .ChatLog__avatar {
   display: none;
+}
+
+.modal-footer .btn {
+  margin: 0 !important;
+  display: inline !important;
+  border: 1px solid red;
+  background: white;
+  color: red;
+}
+
+.modal-footer .btn:hover {
+  color: white;
+  background: #a9040e;
+  border: 1px solid red;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {

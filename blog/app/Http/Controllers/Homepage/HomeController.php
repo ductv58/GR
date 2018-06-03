@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Homepage;
 
 use App\Model\Branch;
+use App\Model\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Model\User;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -111,12 +113,39 @@ class HomeController extends Controller
 
     public function postRate(Request $request, $id)
     {
-//    dd($request->rate);
         if (Auth::guard('user')->check() != null) {
 
             $branch = Branch::findOrFail($id);
             $user = User::findOrFail(Auth::guard('user')->user()->id);
             $user->branchs()->syncWithoutDetaching([$branch->id => ['rate' => $request->rate]]);
         }
+    }
+
+    public function report(Request $request)
+    {
+        if (Auth::guard('user')->check() != null) {
+            $userId = Auth::guard('user')->user()->id;
+        } else {
+            $userId = "";
+        }
+        DB::beginTransaction();
+        try {
+            Report::create([
+                'user_id' => $userId,
+                'content' => $request->content,
+                'status' => false
+            ]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'status' => false,
+                'message' => 'success',
+            ], $e->getCode());
+        }
+        return response()->json([
+            'status' => true,
+            'message' => 'success',
+        ], self::CODE_CREATE_SUCCESS);
     }
 }

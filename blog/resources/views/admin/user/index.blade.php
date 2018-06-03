@@ -57,7 +57,7 @@
                         @endforeach
                         </tbody>
                     </table>
-                    {{--<div class="text-center">{{ $users->links() }}</div>--}}
+                    <div class="text-center">{{ $users->links() }}</div>
                 @else
                     <h2 class="no-result text-center">{{ trans('messages.admin.no_user') }}</h2>
                 @endif
