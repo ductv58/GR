@@ -72,7 +72,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $this->guard()->logout();
+        $this->guard('user')->logout();
 
         return redirect('/home');
     }

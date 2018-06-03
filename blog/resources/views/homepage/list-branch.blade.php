@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-md-8 recommender-branch-right">
                                     <h4>{{ $branch->name }}</h4>
-                                    <p>{{ $branch->description }}</p>
+                                    <p>{{ str_limit($branch->description, 250 , ' ...') }}</p>
                                     <div class="global-btn view-branch">
                                         <a href="{{ route('homepage.detail-branch', $branch->id) }}">XEM THÊM
                                             <span class="ti-arrow-right"></span>
