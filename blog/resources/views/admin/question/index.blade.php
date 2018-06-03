@@ -3,7 +3,7 @@
     <h1>{{ $title }}</h1>
 @stop
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         @if(session()->has('createSuccess'))
             <div class="alert alert-success">
                 <p>{{session()->get('createSuccess')}}</p>
