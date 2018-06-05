@@ -3,13 +3,19 @@ use App\Http\Controllers\BotManController;
 
 $botman = resolve('botman');
 
-$botman->hears('Hi', function ($bot) {
+$botman->hears('Xin chào', function ($bot) {
     $bot->typesAndWaits(1);
-    $bot->reply('Danh sách ngành sắp xếp theo độ phù hợp giảm dần từ trên xuống');
-    $bot->reply('Khoa học máy tính');
-    $bot->reply('Kỹ thuật máy tính');
-    $bot->reply('Công nghệ thông tin');
-    $bot->reply('Công nghệ thông tin Việt Nhật');
-    $bot->reply('Công nghệ thông tin ICT');
+    $bot->reply('Chào bạn!');
+    $bot->reply('Hãy gõ start để bắt đầu nhận tư vấn!');
+});
+$botman->hears('hello', function ($bot) {
+    $bot->typesAndWaits(1);
+    $bot->reply('Hi!!!');
+    $bot->reply('Send start to start receive recommend!');
+});
+$botman->hears('hi', function ($bot) {
+    $bot->typesAndWaits(1);
+    $bot->reply('Hello!!!');
+    $bot->reply('Send start to start receive recommend!');
 });
 $botman->hears('start', BotManController::class.'@firstQuestion');

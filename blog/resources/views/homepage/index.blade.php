@@ -262,7 +262,7 @@
         </a>
         <div class="container">
             <div class="footer-content">
-                <img class="margin-top-70 img-responsive" src="/images/images.jpg" alt="">
+                <img class="margin-top-70 img-responsive" src="" alt="">
                 <div class="row">
                     <div class="col-md-4 col-sm-8">
                         <h4 class="text-green">LIÊN HỆ VỚI CHÚNG TÔI</h4>
