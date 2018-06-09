@@ -160,7 +160,9 @@ class FirstQuestion extends Conversation
                         foreach ($userCurrentRates as $userCurrentRate) {
                             $rateM = $rateM + $userCurrentRate;
                         }
-                        $rateM = $rateM / count($userCurrentRates);
+                        if(count($userCurrentRates)!=0){
+                            $rateM = $rateM / count($userCurrentRates);
+                        }
                         if (!isset($this->thisRecomment[$bracnh->id])) {
                             $this->thisRecomment[$bracnh->id] = 0;
                         }
